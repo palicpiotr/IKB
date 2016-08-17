@@ -40,8 +40,13 @@
                                 <tr><td width="10%"></td>
                                     <td>
                                         <h1> 
-                                            Students
+                                            Articles in category <font color="BLUE"><u> #{postBean.articleTypeName} </u></font>
                                         </h1> 
+                                        <ol>
+                                            <li>
+                                                <h1><font color="BLUE">  <h> <u><h:commandLink action="/AddNewArticle.xhtml" style="color:#0077CC;" value="Create new post" /></u></h></font></h1>
+                                            </li>
+                                        </ol>
                                         <table height="15%" width="100%">  
                                             <tr>
                                                 <td style="border-bottom: 2px solid #0077CC"> №</td> 
@@ -58,8 +63,10 @@
                                                     <td> #{art.content} </td> 
                                                     <td> #{art.idType.name} </td>
                                                     <td> #{art.addingDate} </td>
-                                                    <td width="7%"><h:commandButton class="button" onmouseover="this.style.background = '#0077CC';this.style.color = 'white'" onmouseout="this.style.background = 'white';this.style.color = '#0077CC'"  value="Delete"/></td>
-                                                    <td><h:commandButton class="button" onmouseover="this.style.background = '#0077CC';this.style.color = 'white'" onmouseout="this.style.background = 'white';this.style.color = '#0077CC'" value="Edit"/></td>
+                                                    <!--Doesn't work the delete one-->
+                                                    <td width="7%"><h:commandButton class="button" onmouseover="this.style.background = '#0077CC';this.style.color = 'white'" onmouseout="this.style.background = 'white';this.style.color = '#0077CC'"  action="#{articleBean.removeArticle(art.idArticle)}" value="Delete"/></td>
+                                                    <!--Doesn't work the edit mode in edit page cause the date is nor parsed-->
+                                                    <td><h:commandButton class="button" onmouseover="this.style.background = '#0077CC';this.style.color = 'white'" onmouseout="this.style.background = 'white';this.style.color = '#0077CC'" action="#{articleBean.toEditArticle(art.idArticle, postBean.idArticletype)}" value="Edit"/></td>
                                                 </tr> 
                                             </c:forEach>
                                         </table>
@@ -68,7 +75,7 @@
                                         <h> <h:commandLink action="/AllArticletypes.xhtml" style="color:#0077CC;" value="Return To Categpry List" /></h>
                                         <br />
                                         <br />
-                                        <h> <h:commandLink action="/AddNewPost.xhtml" style="color:#0077CC;" value="Create new post in this category" /></h>
+                                      
                                     </td>
                                     <td width="10%"></td></tr>
                             </table>
