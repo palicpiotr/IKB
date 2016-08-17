@@ -8,6 +8,7 @@ package beans;
 import dao.ArticleDAOLocal;
 import dao.PostDAOLocal;
 import java.io.Serializable;
+import java.text.DateFormat;
 import java.util.Date;
 import java.util.List;
 import javax.ejb.EJB;
@@ -15,6 +16,8 @@ import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import models.Article;
 import models.Articletype;
+import java.util.Calendar;
+import java.text.SimpleDateFormat;
 
 /**
  *
@@ -29,7 +32,7 @@ public class ArticleBean implements Serializable {
 
     @EJB
     private PostDAOLocal postDAOLocal;
-    
+
     private int idArticletype;
 
     private String articleName;
@@ -39,6 +42,14 @@ public class ArticleBean implements Serializable {
     private List<Articletype> articleTypeNames;
     private int IdArticle;
 
+    public static final String DATE_FORMAT_NOW = "yyyy-MM-dd HH:mm:ss";
+
+    public static String now() {
+        Calendar cal = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT_NOW);
+        return sdf.format(cal.getTime());
+    }
+
     public int getIdArticle() {
         return IdArticle;
     }
@@ -46,7 +57,7 @@ public class ArticleBean implements Serializable {
     public void setIdArticle(int IdArticle) {
         this.IdArticle = IdArticle;
     }
-    
+
     public List<Articletype> getArticleTypeNames() {
         return articleTypeNames;
     }
@@ -54,7 +65,7 @@ public class ArticleBean implements Serializable {
     public void setArticleTypeNames(List<Articletype> articleTypeNames) {
         this.articleTypeNames = articleTypeNames;
     }
-    
+
     public int getIdArticletype() {
         return idArticletype;
     }
@@ -93,7 +104,7 @@ public class ArticleBean implements Serializable {
     }
 
     //this method is used to get the page where the the articles in article type
-   /* public String getPageArticleInArticletype(int idArticletype) throws Exception {
+    /* public String getPageArticleInArticletype(int idArticletype) throws Exception {
         this.idArticletype = idArticletype;
         return "/ArticlesInCategory.xhtml";
     }
@@ -102,17 +113,21 @@ public class ArticleBean implements Serializable {
     public List<Article> getArticlesInArticletypeB(int idArticleType) throws Exception {
         return this.articleDAOLocal.getArticlesByIdArticleType(idArticleType);
     }
-*/
-    
-    public String addNewArticle() throws Exception{
-        Date date = null;
+     */
+    public String addNewArticle() throws Exception {
+        //Date date = null;
         //addingDate = Date.UTC(idArticletype, idArticletype, idArticletype, idArticletype, idArticletype, idArticletype)
-        this.articleDAOLocal.addNewArticle(articleName, content, addingDate, idArticletype);
+        //Calendar now = Calendar.getInstance();
+        //DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Calendar cal = Calendar.getInstance();
+        //dateFormat.format(cal.getTime()),
+        Date date = cal.getTime();
+        this.articleDAOLocal.addNewArticle(articleName, content, ((Date) date), IdArticle);
         return "/AllArticles.xhtml";
     }
-    
+
     //this method is used to get old information about article to edit page
-    public String toEditArticle(int idArticle, int idType) throws Exception{
+    public String toEditArticle(int idArticle, int idType) throws Exception {
         localId = idArticle;
         this.articleTypeNames = this.postDAOLocal.getAllArticleTypes();
         Article article = this.articleDAOLocal.getArticleInfo(idArticle);
@@ -121,15 +136,15 @@ public class ArticleBean implements Serializable {
         this.addingDate = article.getAddingDate();
         return "/EditArticle.xhtml";
     }
-    
+
     //this method is used to save changes in edit mode
-    public String editArticle() throws Exception{
+    public String editArticle() throws Exception {
         this.articleDAOLocal.editArticle(localId, articleName, content, addingDate, idArticletype);
         return "/ArticlesInCategory.xhtml";
     }
-    
+
     //this method is used to remove article in choosed article type
-    public String removeArticle(int idArticle) throws Exception{
+    public String removeArticle(int idArticle) throws Exception {
         this.articleDAOLocal.removeArticle(IdArticle);
         return "/ArticlesInCategory.xhtml";
     }

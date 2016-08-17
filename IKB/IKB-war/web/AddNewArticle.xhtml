@@ -69,17 +69,19 @@
                                             
 
                                             <!--Problems witg date conversation -->
-                                            <tr> 
+                                           <!-- <tr> 
                                                 <th align="right" width="10%"> 
                                                     <h:outputLabel value="Adding Date" for="addingDate"/> 
                                                 </th> 
                                                 <th align="left"> 
-                                                    <h:inputText id="addingDate" value="#{articleBean.addingDate}" required="true"> </h:inputText> 
+                                                    <h:inputText id="addingDate" value="{articleBean.addingDate}" required="true">
+                                                        <f:convertDateTime pattern="yyyy-MM-dd"/>
+                                                    </h:inputText> 
                                                 </th> 
                                                 <th> 
                                                     <h:message for="addingDate" style="color:red" /> 
                                                 </th> 
-                                            </tr> 
+                                            </tr> -->
 
                                             <tr>
                                                 <th align="right" width="10%">
