@@ -39,14 +39,20 @@ public class ArticleDAO implements ArticleDAOLocal {
     }
 
     @Override
-    public void addNewArticle(String articleName, String content, Date addingDate, int idType) throws Exception {
+    public void addNewArticle(String articleName, String content, /*Date addingDate,*/ int idType) throws Exception {
         Article article = new Article();
         article.setArticleName(articleName);
         article.setContent(content);
+        //article.setAddingDate(addingDate);
+        java.util.Calendar cal = java.util.Calendar.getInstance();
+        java.util.Date addingDate = cal.getTime();
         article.setAddingDate(addingDate);
         article.setIdType(entityManager.getReference(Articletype.class, idType));
         entityManager.persist(article);
         Articletype articletype = entityManager.getReference(Articletype.class, idType);
+        System.out.println("AAA: " + idType);
+        System.out.println("AAA: " + addingDate);
+        System.out.println("AAA: " + articletype.getIdType());
         articletype.getArticleList().add(article);
         entityManager.merge(articletype);
     }

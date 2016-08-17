@@ -8,7 +8,6 @@ package beans;
 import dao.ArticleDAOLocal;
 import dao.PostDAOLocal;
 import java.io.Serializable;
-import java.text.DateFormat;
 import java.util.Date;
 import java.util.List;
 import javax.ejb.EJB;
@@ -16,8 +15,7 @@ import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import models.Article;
 import models.Articletype;
-import java.util.Calendar;
-import java.text.SimpleDateFormat;
+import javax.annotation.PostConstruct;
 
 /**
  *
@@ -42,14 +40,19 @@ public class ArticleBean implements Serializable {
     private List<Articletype> articleTypeNames;
     private int IdArticle;
 
-    public static final String DATE_FORMAT_NOW = "yyyy-MM-dd HH:mm:ss";
-
-    public static String now() {
-        Calendar cal = Calendar.getInstance();
-        SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT_NOW);
-        return sdf.format(cal.getTime());
-    }
-
+    //public static final String DATE_FORMAT_NOW = "yyyy-MM-dd HH:mm:ss";
+    //public static String now() {
+    //  Calendar cal = Calendar.getInstance();
+    //  SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT_NOW);
+    // return sdf.format(cal.getTime());
+    // }
+    //@PostConstruct
+    // public void initialize() {
+    //  java.util.Calendar cal = java.util.Calendar.getInstance();
+    //  java.util.Date utilDate = cal.getTime();
+    // addingDate = utilDate;
+    // }
+    
     public int getIdArticle() {
         return IdArticle;
     }
@@ -119,10 +122,13 @@ public class ArticleBean implements Serializable {
         //addingDate = Date.UTC(idArticletype, idArticletype, idArticletype, idArticletype, idArticletype, idArticletype)
         //Calendar now = Calendar.getInstance();
         //DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        Calendar cal = Calendar.getInstance();
+        //Calendar cal = Calendar.getInstance();
         //dateFormat.format(cal.getTime()),
-        Date date = cal.getTime();
-        this.articleDAOLocal.addNewArticle(articleName, content, ((Date) date), IdArticle);
+        //Date date = cal.getTime();
+        //java.util.Calendar cal = java.util.Calendar.getInstance();
+        //java.util.Date utilDate = cal.getTime();
+        //java.util.Date sqlDate =  new Date(utilDate.getTime());
+        this.articleDAOLocal.addNewArticle(articleName, content, /*((Date) utilDate),*/ idArticletype);
         return "/AllArticles.xhtml";
     }
 
@@ -145,7 +151,7 @@ public class ArticleBean implements Serializable {
 
     //this method is used to remove article in choosed article type
     public String removeArticle(int idArticle) throws Exception {
-        this.articleDAOLocal.removeArticle(IdArticle);
+        this.articleDAOLocal.removeArticle(idArticle);
         return "/ArticlesInCategory.xhtml";
     }
 }

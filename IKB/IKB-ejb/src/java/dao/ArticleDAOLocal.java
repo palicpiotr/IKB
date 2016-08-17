@@ -21,7 +21,7 @@ public interface ArticleDAOLocal {
     
     public List<Article> getArticlesByIdArticleType(int idType) throws Exception;
     
-    public void addNewArticle(String articleName, String content, Date addingDate, int idType) throws Exception;
+    public void addNewArticle(String articleName, String content, /*Date addingDate,*/ int idType) throws Exception;
     
     public boolean editArticle(int idArticle, String articleName, String content, Date addingDate, int idType) throws Exception;
     
