@@ -15,7 +15,6 @@ import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import models.Article;
 import models.Articletype;
-import javax.annotation.PostConstruct;
 
 /**
  *
@@ -32,14 +31,13 @@ public class ArticleBean implements Serializable {
     private PostDAOLocal postDAOLocal;
 
     private int idArticletype;
-
     private String articleName;
     private String content;
     private Date addingDate;
     private int localId;
     private List<Articletype> articleTypeNames;
     private int IdArticle;
-
+    private int localId2;
     //public static final String DATE_FORMAT_NOW = "yyyy-MM-dd HH:mm:ss";
     //public static String now() {
     //  Calendar cal = Calendar.getInstance();
@@ -52,6 +50,7 @@ public class ArticleBean implements Serializable {
     //  java.util.Date utilDate = cal.getTime();
     // addingDate = utilDate;
     // }
+    
     
     public int getIdArticle() {
         return IdArticle;
@@ -129,23 +128,27 @@ public class ArticleBean implements Serializable {
         //java.util.Date utilDate = cal.getTime();
         //java.util.Date sqlDate =  new Date(utilDate.getTime());
         this.articleDAOLocal.addNewArticle(articleName, content, /*((Date) utilDate),*/ idArticletype);
-        return "/AllArticles.xhtml";
+        return "/ArticlesInCategory.xhtml";
     }
 
     //this method is used to get old information about article to edit page
     public String toEditArticle(int idArticle, int idType) throws Exception {
         localId = idArticle;
+        localId2 = idType;
+        System.out.println("ASSSSSSSSSSSSSSSSSS: " + idType);
         this.articleTypeNames = this.postDAOLocal.getAllArticleTypes();
         Article article = this.articleDAOLocal.getArticleInfo(idArticle);
         this.articleName = article.getArticleName();
         this.content = article.getContent();
-        this.addingDate = article.getAddingDate();
+        //this.addingDate = article.getAddingDate();
         return "/EditArticle.xhtml";
     }
 
     //this method is used to save changes in edit mode
     public String editArticle() throws Exception {
-        this.articleDAOLocal.editArticle(localId, articleName, content, addingDate, idArticletype);
+        //System.out.println("local id ++++++++++ " + localId + idArticletype + articleName + content + addingDate);
+        //System.out.println("Id Article Type ++++++++++ " + idArticletype);
+        this.articleDAOLocal.editArticle(localId, articleName, content, /*addingDate,*/ /*idArticletype*/ localId2);
         return "/ArticlesInCategory.xhtml";
     }
 
@@ -153,5 +156,16 @@ public class ArticleBean implements Serializable {
     public String removeArticle(int idArticle) throws Exception {
         this.articleDAOLocal.removeArticle(idArticle);
         return "/ArticlesInCategory.xhtml";
+    }
+   
+    //this method is used to redirecting the user to page where is the details about choosed article
+    public String getPageWithContent(String articleName) throws Exception{
+        this.articleName = articleName;
+        return "/ChoosedArticleName.xhtml";
+    }
+    
+     //this method is used to get the content in article
+    public List<Article> getArticleContent(String articleName) throws Exception{
+        return this.articleDAOLocal.getArticleContentByName(articleName);
     }
 }

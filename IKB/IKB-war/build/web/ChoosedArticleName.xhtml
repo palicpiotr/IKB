@@ -5,7 +5,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
-        <title>Articles  In Categpry</title>
+        <title>Facelet Title</title>
     </h:head>
     <h:body>
         <f:view> 
@@ -40,7 +40,7 @@
                                 <tr><td width="10%"></td>
                                     <td>
                                         <h1> 
-                                            Articles in category <font color="BLUE"><u> #{postBean.articleTypeName} </u></font>
+                                            Details the choosed <b>Article</b>
                                         </h1> 
                                         <ol>
                                             <li>
@@ -49,24 +49,22 @@
                                         </ol>
                                         <table height="15%" width="100%">  
                                             <tr>
-                                                <td style="border-bottom: 2px solid #0077CC"> №</td> 
                                                 <td style="border-bottom: 2px solid #0077CC"> Article Name </td>
                                                 <td style="border-bottom: 2px solid #0077CC"> Content </td>
                                                 <td style="border-bottom: 2px solid #0077CC"> Category </td>
                                                 <td style="border-bottom: 2px solid #0077CC"> Adding Date </td>
                                                 <td> </td>
                                             </tr>  
-                                            <c:forEach items="#{postBean.getArticlesInArticletypeB(postBean.idArticletype)}" var="art">
-                                                <tr> 
-                                                    <td> #{art.idArticle} </td>                       
+                                            <c:forEach items="#{articleBean.getArticleContent(articleBean.articleName)}" var="art">
+                                                <tr>                      
                                                     <td> #{art.articleName}</td>
                                                     <td> #{art.content} </td> 
                                                     <td> #{art.idType.name} </td>
                                                     <td> #{art.addingDate} </td>
                                                     <!--Doesn't work the delete one-->
-                                                    <td width="7%"><h:commandButton class="button" onmouseover="this.style.background = '#0077CC';this.style.color = 'white'" onmouseout="this.style.background = 'white';this.style.color = '#0077CC'"  action="#{articleBean.removeArticle(art.idArticle)}" value="Delete"/></td>
+                                                    <td width="7%"><h:commandButton class="button" onmouseover="this.style.background = '#0077CC';this.style.color = 'white'" onmouseout="this.style.background = 'white';this.style.color = '#0077CC'"  value="Delete"/></td>
                                                     <!--Doesn't work the edit mode in edit page cause the date is nor parsed-->
-                                                    <td><h:commandButton class="button" onmouseover="this.style.background = '#0077CC';this.style.color = 'white'" onmouseout="this.style.background = 'white';this.style.color = '#0077CC'" action="#{articleBean.toEditArticle(art.idArticle, postBean.idArticletype)}" value="Edit"/></td>
+                                                    <td><h:commandButton class="button" onmouseover="this.style.background = '#0077CC';this.style.color = 'white'" onmouseout="this.style.background = 'white';this.style.color = '#0077CC'" value="Edit"/></td>
                                                 </tr> 
                                             </c:forEach>
                                         </table>
@@ -83,7 +81,6 @@
                 </table>
             </h:form>
         </f:view>
-
     </h:body>
 </html>
 

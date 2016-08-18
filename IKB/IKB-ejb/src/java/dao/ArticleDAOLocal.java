@@ -16,16 +16,18 @@ import models.Article;
  */
 @Local
 public interface ArticleDAOLocal {
-    
+
     public List<Article> getAllArticles() throws Exception;
-    
+
     public List<Article> getArticlesByIdArticleType(int idType) throws Exception;
-    
+
     public void addNewArticle(String articleName, String content, /*Date addingDate,*/ int idType) throws Exception;
-    
-    public boolean editArticle(int idArticle, String articleName, String content, Date addingDate, int idType) throws Exception;
-    
+
+    public boolean editArticle(int idArticle, String articleName, String content, /*Date addingDate,*/ int idType) throws Exception;
+
     public Article getArticleInfo(int idArticle) throws Exception;
-    
+
     public boolean removeArticle(int idArticle) throws Exception;
+
+    public List<Article> getArticleContentByName(String articleName) throws Exception;
 }

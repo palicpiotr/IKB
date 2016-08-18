@@ -66,19 +66,21 @@
                                                 </th>
                                             </tr>
 
-
-
+                                            <!--The date changes with the changing data of the article-->
+                                            <!-- 
                                             <tr> 
                                                 <th align="right" width="10%"> 
                                                     <h:outputLabel value="Addint Date" for="addingDate"/> 
                                                 </th> 
                                                 <th align="left"> 
-                                                    <h:inputText id="addingDate" value="#{articleBean.addingDate}" required="true"> </h:inputText> 
+                                                    <h:inputText id="addingDate" value="# {articleBean.addingDate}" required="true"> 
+                                                        <f:convertDateTime parent="yyyy-MM-dd"/>
+                                                    </h:inputText> 
                                                 </th> 
                                                 <th> 
                                                     <h:message for="addingDate" style="color:red" /> 
                                                 </th> 
-                                            </tr> 
+                                            </tr> -->
 
                                             <tr>
                                                 <th align="right" width="10%">

@@ -55,6 +55,7 @@
                                                 <td style="border-bottom: 2px solid #0077CC"><b> Name </b></td>
                                                 <td style="border-bottom: 2px solid #0077CC"><b>Adding Date </b></td>
                                                 <td style="border-bottom: 2px solid #0077CC"><b>Category </b></td>
+                                                <td style="border-bottom: 2px solid #0077CC"><b>Author </b></td>
                                                 <td> </td>
                                                 <td> </td>
                                             </tr> 
@@ -62,7 +63,7 @@
                                                 <tr> 
                                                     <!--<td style="display:none;"> {article.idArticle} </td>-->   
                                                     <td><ol><li></li></ol></td>
-                                                    <td>#{article.articleName}</td>
+                                                    <td><h:commandLink style="color:#0077CC" action="#{articleBean.getPageWithContent(article.articleName)}" value="#{article.articleName}"/></td>
                                                     <td>#{article.addingDate}</td>
                                                     <td>#{article.idType.name}</td>
                                                     <td></td>
