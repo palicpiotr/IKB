@@ -35,7 +35,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Comments.findAll", query = "SELECT c FROM Comments c"),
     @NamedQuery(name = "Comments.findByIdComment", query = "SELECT c FROM Comments c WHERE c.idComment = :idComment"),
-    @NamedQuery(name = "Comments.findByAddingDateComment", query = "SELECT c FROM Comments c WHERE c.addingDateComment = :addingDateComment")})
+    @NamedQuery(name = "Comments.findByAddingDateComment", query = "SELECT c FROM Comments c WHERE c.addingDateComment = :addingDateComment"),
+    @NamedQuery(name = "Comments.findByCommentAuthor", query = "SELECT c FROM Comments c WHERE c.commentAuthor = :commentAuthor")})
 public class Comments implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -55,6 +56,11 @@ public class Comments implements Serializable {
     @Column(name = "addingDateComment")
     @Temporal(TemporalType.TIMESTAMP)
     private Date addingDateComment;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 100)
+    @Column(name = "commentAuthor")
+    private String commentAuthor;
     @JoinColumn(name = "idArticle", referencedColumnName = "idArticle")
     @ManyToOne(optional = false)
     private Article idArticle;
@@ -66,10 +72,11 @@ public class Comments implements Serializable {
         this.idComment = idComment;
     }
 
-    public Comments(Integer idComment, String commentContent, Date addingDateComment) {
+    public Comments(Integer idComment, String commentContent, Date addingDateComment, String commentAuthor) {
         this.idComment = idComment;
         this.commentContent = commentContent;
         this.addingDateComment = addingDateComment;
+        this.commentAuthor = commentAuthor;
     }
 
     public Integer getIdComment() {
@@ -94,6 +101,14 @@ public class Comments implements Serializable {
 
     public void setAddingDateComment(Date addingDateComment) {
         this.addingDateComment = addingDateComment;
+    }
+
+    public String getCommentAuthor() {
+        return commentAuthor;
+    }
+
+    public void setCommentAuthor(String commentAuthor) {
+        this.commentAuthor = commentAuthor;
     }
 
     public Article getIdArticle() {

@@ -9,7 +9,7 @@ import models.Articletype;
 import models.Comments;
 import models.Complain;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2016-08-18T03:47:54")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2016-08-18T07:06:50")
 @StaticMetamodel(Article.class)
 public class Article_ { 
 
@@ -20,5 +20,6 @@ public class Article_ {
     public static volatile ListAttribute<Article, Complain> complainList;
     public static volatile SingularAttribute<Article, Date> addingDate;
     public static volatile SingularAttribute<Article, String> content;
+    public static volatile SingularAttribute<Article, String> articleAuthor;
 
 }

@@ -31,7 +31,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Complain.findAll", query = "SELECT c FROM Complain c"),
     @NamedQuery(name = "Complain.findByIdComplain", query = "SELECT c FROM Complain c WHERE c.idComplain = :idComplain"),
-    @NamedQuery(name = "Complain.findByType", query = "SELECT c FROM Complain c WHERE c.type = :type")})
+    @NamedQuery(name = "Complain.findByType", query = "SELECT c FROM Complain c WHERE c.type = :type"),
+    @NamedQuery(name = "Complain.findByComplainAuthor", query = "SELECT c FROM Complain c WHERE c.complainAuthor = :complainAuthor")})
 public class Complain implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -45,6 +46,9 @@ public class Complain implements Serializable {
     @Size(min = 1, max = 255)
     @Column(name = "type")
     private String type;
+    @Size(max = 100)
+    @Column(name = "complainAuthor")
+    private String complainAuthor;
     @JoinColumn(name = "articleID", referencedColumnName = "idArticle")
     @ManyToOne(optional = false)
     private Article articleID;
@@ -75,6 +79,14 @@ public class Complain implements Serializable {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getComplainAuthor() {
+        return complainAuthor;
+    }
+
+    public void setComplainAuthor(String complainAuthor) {
+        this.complainAuthor = complainAuthor;
     }
 
     public Article getArticleID() {

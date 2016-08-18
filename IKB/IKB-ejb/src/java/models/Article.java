@@ -40,7 +40,8 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Article.findAll", query = "SELECT a FROM Article a"),
     @NamedQuery(name = "Article.findByIdArticle", query = "SELECT a FROM Article a WHERE a.idArticle = :idArticle"),
     @NamedQuery(name = "Article.findByArticleName", query = "SELECT a FROM Article a WHERE a.articleName = :articleName"),
-    @NamedQuery(name = "Article.findByAddingDate", query = "SELECT a FROM Article a WHERE a.addingDate = :addingDate")})
+    @NamedQuery(name = "Article.findByAddingDate", query = "SELECT a FROM Article a WHERE a.addingDate = :addingDate"),
+    @NamedQuery(name = "Article.findByArticleAuthor", query = "SELECT a FROM Article a WHERE a.articleAuthor = :articleAuthor")})
 public class Article implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -63,6 +64,11 @@ public class Article implements Serializable {
     @Column(name = "addingDate")
     @Temporal(TemporalType.TIMESTAMP)
     private Date addingDate;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 100)
+    @Column(name = "articleAuthor")
+    private String articleAuthor;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idArticle")
     private List<Comments> commentsList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "articleID")
@@ -78,10 +84,11 @@ public class Article implements Serializable {
         this.idArticle = idArticle;
     }
 
-    public Article(Integer idArticle, String articleName, Date addingDate) {
+    public Article(Integer idArticle, String articleName, Date addingDate, String articleAuthor) {
         this.idArticle = idArticle;
         this.articleName = articleName;
         this.addingDate = addingDate;
+        this.articleAuthor = articleAuthor;
     }
 
     public Integer getIdArticle() {
@@ -114,6 +121,14 @@ public class Article implements Serializable {
 
     public void setAddingDate(Date addingDate) {
         this.addingDate = addingDate;
+    }
+
+    public String getArticleAuthor() {
+        return articleAuthor;
+    }
+
+    public void setArticleAuthor(String articleAuthor) {
+        this.articleAuthor = articleAuthor;
     }
 
     @XmlTransient
