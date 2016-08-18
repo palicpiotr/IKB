@@ -67,6 +67,17 @@
                                                 </th> 
                                             </tr> 
                                             
+                                            <tr>
+                                                <th align="right" width="10%">
+                                                    <h:outputLabel value="Author name" for="authorName"/>
+                                                </th>
+                                                <th align="left">
+                                                    <h:inputText id="authorName" value="#{articleBean.articleAuthor}" required="true"></h:inputText>
+                                                </th>
+                                                <th>
+                                                    <h:message for="authorName" style="color:red" />
+                                                </th>
+                                            </tr>
 
                                             <!--Problems witg date conversation -->
                                            <!-- <tr> 

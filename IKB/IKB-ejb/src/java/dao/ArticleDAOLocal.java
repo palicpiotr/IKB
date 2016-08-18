@@ -20,13 +20,16 @@ public interface ArticleDAOLocal {
 
     public List<Article> getArticlesByIdArticleType(int idType) throws Exception;
 
-    public void addNewArticle(String articleName, String content, /*Date addingDate,*/ int idType) throws Exception;
+    public void addNewArticle(String articleName, String content, /*Date addingDate,*/ int idType, String articleAuthor) throws Exception;
 
-    public boolean editArticle(int idArticle, String articleName, String content, /*Date addingDate,*/ int idType) throws Exception;
+    public boolean editArticle(int idArticle, String articleName, String content, /*Date addingDate,*/ int idType, String articleAuthor) throws Exception;
 
     public Article getArticleInfo(int idArticle) throws Exception;
 
     public boolean removeArticle(int idArticle) throws Exception;
 
     public List<Article> getArticleContentByName(String articleName) throws Exception;
+    
+    //in the future
+    //public List<Article> getArticleAuthorByName(String authorName) throws Exception;
 }

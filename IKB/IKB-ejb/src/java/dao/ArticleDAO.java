@@ -40,7 +40,7 @@ public class ArticleDAO implements ArticleDAOLocal {
 
     //this method is used to add the new article 
     @Override
-    public void addNewArticle(String articleName, String content, /*Date addingDate,*/ int idType) throws Exception {
+    public void addNewArticle(String articleName, String content, /*Date addingDate,*/ int idType, String articleAuthor) throws Exception {
         Article article = new Article();
         article.setArticleName(articleName);
         article.setContent(content);
@@ -48,6 +48,7 @@ public class ArticleDAO implements ArticleDAOLocal {
         java.util.Calendar calendar = java.util.Calendar.getInstance();
         java.util.Date addingDate = calendar.getTime();
         article.setAddingDate(addingDate);
+        article.setArticleAuthor(articleAuthor);
         article.setIdType(entityManager.getReference(Articletype.class, idType));
         entityManager.persist(article);
         Articletype articletype = entityManager.getReference(Articletype.class, idType);
@@ -60,7 +61,7 @@ public class ArticleDAO implements ArticleDAOLocal {
 
     //this method is used to edit the choosed article
     @Override
-    public boolean editArticle(int idArticle, String articleName, String content, /*Date addingDate,*/ int idType) throws Exception {
+    public boolean editArticle(int idArticle, String articleName, String content, /*Date addingDate,*/ int idType, String articleAuthor) throws Exception {
         Article article = entityManager.getReference(Article.class, idArticle);
         Articletype articleType = entityManager.getReference(Articletype.class, article.getIdType().getIdType());
         articleType.getArticleList().remove(article);
@@ -70,6 +71,7 @@ public class ArticleDAO implements ArticleDAOLocal {
         java.util.Calendar calendar = java.util.Calendar.getInstance();
         java.util.Date addingDate = calendar.getTime();
         article.setAddingDate(addingDate);
+        article.setArticleAuthor(articleAuthor);
         article.setIdType(entityManager.getReference(Articletype.class, idType));
         articleType = entityManager.getReference(Articletype.class, idType);
 //        System.out.println("AAA: " + idType);

@@ -65,6 +65,18 @@
                                                     <h:message for="content" style="color:red"/>
                                                 </th>
                                             </tr>
+                                            
+                                            <tr>
+                                                <th align="right" width="10%">
+                                                    <h:outputLabel value="Author name" for="authorName"/>
+                                                </th>
+                                                <th align="left">
+                                                    <h:inputText id="authorName" value="#{articleBean.articleAuthor}"></h:inputText>
+                                                </th>
+                                                <th>
+                                                    <h:message for="authorName" style="color:red"/>
+                                                </th>
+                                            </tr>
 
                                             <!--The date changes with the changing data of the article-->
                                             <!-- 

@@ -38,6 +38,7 @@ public class ArticleBean implements Serializable {
     private List<Articletype> articleTypeNames;
     private int IdArticle;
     private int localId2;
+    private String articleAuthor;
     //public static final String DATE_FORMAT_NOW = "yyyy-MM-dd HH:mm:ss";
     //public static String now() {
     //  Calendar cal = Calendar.getInstance();
@@ -50,7 +51,14 @@ public class ArticleBean implements Serializable {
     //  java.util.Date utilDate = cal.getTime();
     // addingDate = utilDate;
     // }
-    
+
+    public String getArticleAuthor() {
+        return articleAuthor;
+    }
+
+    public void setArticleAuthor(String articleAuthor) {
+        this.articleAuthor = articleAuthor;
+    }
     
     public int getIdArticle() {
         return IdArticle;
@@ -127,7 +135,7 @@ public class ArticleBean implements Serializable {
         //java.util.Calendar cal = java.util.Calendar.getInstance();
         //java.util.Date utilDate = cal.getTime();
         //java.util.Date sqlDate =  new Date(utilDate.getTime());
-        this.articleDAOLocal.addNewArticle(articleName, content, /*((Date) utilDate),*/ idArticletype);
+        this.articleDAOLocal.addNewArticle(articleName, content, /*((Date) utilDate),*/ idArticletype, articleAuthor);
         return "/ArticlesInCategory.xhtml";
     }
 
@@ -140,6 +148,7 @@ public class ArticleBean implements Serializable {
         Article article = this.articleDAOLocal.getArticleInfo(idArticle);
         this.articleName = article.getArticleName();
         this.content = article.getContent();
+        this.articleAuthor = article.getArticleAuthor();
         //this.addingDate = article.getAddingDate();
         return "/EditArticle.xhtml";
     }
@@ -148,7 +157,7 @@ public class ArticleBean implements Serializable {
     public String editArticle() throws Exception {
         //System.out.println("local id ++++++++++ " + localId + idArticletype + articleName + content + addingDate);
         //System.out.println("Id Article Type ++++++++++ " + idArticletype);
-        this.articleDAOLocal.editArticle(localId, articleName, content, /*addingDate,*/ /*idArticletype*/ localId2);
+        this.articleDAOLocal.editArticle(localId, articleName, content, /*addingDate,*/ /*idArticletype*/ localId2, articleAuthor);
         return "/ArticlesInCategory.xhtml";
     }
 

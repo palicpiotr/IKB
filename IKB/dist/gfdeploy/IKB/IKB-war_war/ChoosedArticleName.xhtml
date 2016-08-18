@@ -53,6 +53,7 @@
                                                 <td style="border-bottom: 2px solid #0077CC"> Content </td>
                                                 <td style="border-bottom: 2px solid #0077CC"> Category </td>
                                                 <td style="border-bottom: 2px solid #0077CC"> Adding Date </td>
+                                                <td style="border-bottom: 2px solid #0077CC"> Author </td>
                                                 <td> </td>
                                             </tr>  
                                             <c:forEach items="#{articleBean.getArticleContent(articleBean.articleName)}" var="art">
@@ -61,6 +62,7 @@
                                                     <td> #{art.content} </td> 
                                                     <td> #{art.idType.name} </td>
                                                     <td> #{art.addingDate} </td>
+                                                    <td> #{art.articleAuthor} </td>
                                                     <!--Doesn't work the delete one-->
                                                     <td width="7%"><h:commandButton class="button" onmouseover="this.style.background = '#0077CC';this.style.color = 'white'" onmouseout="this.style.background = 'white';this.style.color = '#0077CC'"  value="Delete"/></td>
                                                     <!--Doesn't work the edit mode in edit page cause the date is nor parsed-->
