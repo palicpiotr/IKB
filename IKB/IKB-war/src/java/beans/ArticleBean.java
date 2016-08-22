@@ -177,4 +177,10 @@ public class ArticleBean implements Serializable {
     public List<Article> getArticleContent(String articleName) throws Exception{
         return this.articleDAOLocal.getArticleContentByName(articleName);
     }
+    
+    //for comment one
+   public String getCommentPage(int idArticle) throws Exception{
+        this.IdArticle = idArticle;
+        return "/AddComment.xhtml";
+    }
 }

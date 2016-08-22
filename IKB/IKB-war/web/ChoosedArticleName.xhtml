@@ -54,7 +54,10 @@
                                                 <td style="border-bottom: 2px solid #0077CC"> Category </td>
                                                 <td style="border-bottom: 2px solid #0077CC"> Adding Date </td>
                                                 <td style="border-bottom: 2px solid #0077CC"> Author </td>
-                                                <td> </td>
+                                                <td style="border-bottom: 2px solid #0077CC"> Remove </td>
+                                                <td style="border-bottom: 2px solid #0077CC"> Edit </td>
+                                                <td style="border-bottom: 2px solid #0077CC"> Comment this </td>
+                                                <td style="border-bottom: 2px solid #0077CC"> Comments </td>
                                             </tr>  
                                             <c:forEach items="#{articleBean.getArticleContent(articleBean.articleName)}" var="art">
                                                 <tr>                      
@@ -66,13 +69,16 @@
                                                     <!--Doesn't work the delete one-->
                                                     <td width="7%"><h:commandButton class="button" onmouseover="this.style.background = '#0077CC';this.style.color = 'white'" onmouseout="this.style.background = 'white';this.style.color = '#0077CC'"  value="Delete"/></td>
                                                     <!--Doesn't work the edit mode in edit page cause the date is nor parsed-->
-                                                    <td><h:commandButton class="button" onmouseover="this.style.background = '#0077CC';this.style.color = 'white'" onmouseout="this.style.background = 'white';this.style.color = '#0077CC'" value="Edit"/></td>
+                                                    <td><h:commandButton class="button" value="Edit"/></td>
+                                                    <td><h:commandButton class="button" action="#{articleBean.getCommentPage(art.idArticle)}" value="Comment"></h:commandButton></td>
+                                                    <!--<td><h:commandButton class="button" action="{commentBean.getCommentsToArticle(art.idArticle)}" value="Comments"></h:commandButton></td>-->
+                                                    <td><h:commandButton class="button" action="#{commentBean.getPageWithTheComment(art.idArticle)}" value="Comments"></h:commandButton></td>
                                                 </tr> 
                                             </c:forEach>
                                         </table>
                                         <br />
                                         <br />
-                                        <h> <h:commandLink action="/AllArticletypes.xhtml" style="color:#0077CC;" value="Return To Categpry List" /></h>
+                                        <h> <h:commandLink action="/AllArticles.xhtml" style="color:#0077CC;" value="Return To Article List" /></h>
                                         <br />
                                         <br />
 

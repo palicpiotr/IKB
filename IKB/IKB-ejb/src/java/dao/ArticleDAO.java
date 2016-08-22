@@ -104,5 +104,4 @@ public class ArticleDAO implements ArticleDAOLocal {
         TypedQuery<Article> query = entityManager.createQuery("SELECT a FROM Article a WHERE a.articleName = ?1", Article.class);
         return query.setParameter(1, articleName).getResultList();
     }
-    
 }
