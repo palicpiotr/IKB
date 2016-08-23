@@ -183,4 +183,10 @@ public class ArticleBean implements Serializable {
         this.IdArticle = idArticle;
         return "/AddComment.xhtml";
     }
+   
+   //for complain one
+   public String getComplainPage(int idArticle) throws Exception{
+       this.IdArticle = idArticle;
+       return "/AddComplain.xhtml";
+   }
 }

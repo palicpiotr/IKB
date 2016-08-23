@@ -18,7 +18,7 @@ public interface ComplainDAOLocal {
 
     public List<Complain> getAllComplains() throws Exception;
 
-    public List<Complain> getComplainsForArticle(int idComplain) throws Exception;
+    public List<Complain> getComplainsForArticle(int idArticle) throws Exception;
     
     public void addTheComplain(int articleId, String complainType, String complainAuthor, String complainContent) throws Exception;
 }

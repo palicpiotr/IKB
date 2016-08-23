@@ -58,6 +58,8 @@
                                                 <td style="border-bottom: 2px solid #0077CC"> Edit </td>
                                                 <td style="border-bottom: 2px solid #0077CC"> Comment this </td>
                                                 <td style="border-bottom: 2px solid #0077CC"> Comments </td>
+                                                <td style="border-bottom: 2px solid #0077CC"> Complain this </td>
+                                                <td style="border-bottom: 2px solid #0077CC"> Complains </td>
                                             </tr>  
                                             <c:forEach items="#{articleBean.getArticleContent(articleBean.articleName)}" var="art">
                                                 <tr>                      
@@ -73,6 +75,9 @@
                                                     <td><h:commandButton class="button" action="#{articleBean.getCommentPage(art.idArticle)}" value="Comment"></h:commandButton></td>
                                                     <!--<td><h:commandButton class="button" action="{commentBean.getCommentsToArticle(art.idArticle)}" value="Comments"></h:commandButton></td>-->
                                                     <td><h:commandButton class="button" action="#{commentBean.getPageWithTheComment(art.idArticle)}" value="Comments"></h:commandButton></td>
+                                                     <td><h:commandButton class="button" action="#{articleBean.getComplainPage(art.idArticle)}" value="Complain"></h:commandButton></td>
+                                                    <!--<td><h:commandButton class="button" action="{commentBean.getCommentsToArticle(art.idArticle)}" value="Comments"></h:commandButton></td>-->
+                                                    <td><h:commandButton class="button" action="#{complainBean.getPageWithTheComplain(art.idArticle)}" value="Complains"></h:commandButton></td>
                                                 </tr> 
                                             </c:forEach>
                                         </table>

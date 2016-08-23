@@ -64,7 +64,7 @@ public class ComplainBean implements Serializable {
     //getting the page with the comment
     public String getPageWithTheComplain(int idArticle) throws Exception {
         this.idArticle = idArticle;
-        return "/ComplainsToChoosedArticle.xhtml";
+        return "/ComplainsToChoosedArticles.xhtml";
     }
 
     public List<Complain> getComplainsToArticle(int idArticle) throws Exception {

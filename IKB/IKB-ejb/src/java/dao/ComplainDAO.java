@@ -30,9 +30,9 @@ public class ComplainDAO implements ComplainDAOLocal {
 
     //this method is used to show the complains for article
     @Override
-    public List<Complain> getComplainsForArticle(int idComplain) throws Exception {
+    public List<Complain> getComplainsForArticle(int idArticle) throws Exception {
         TypedQuery<Complain> query = entityManager.createQuery("SELECT c FROM Complain c WHERE c.articleID = ?1", Complain.class);
-        return query.setParameter(1, entityManager.getReference(Complain.class, idComplain)).getResultList();
+        return query.setParameter(1, entityManager.getReference(Article.class, idArticle)).getResultList();
     }
 
     @Override
