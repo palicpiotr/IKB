@@ -6,6 +6,7 @@
 package models;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,10 +14,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -32,7 +36,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Complain.findAll", query = "SELECT c FROM Complain c"),
     @NamedQuery(name = "Complain.findByIdComplain", query = "SELECT c FROM Complain c WHERE c.idComplain = :idComplain"),
     @NamedQuery(name = "Complain.findByType", query = "SELECT c FROM Complain c WHERE c.type = :type"),
-    @NamedQuery(name = "Complain.findByComplainAuthor", query = "SELECT c FROM Complain c WHERE c.complainAuthor = :complainAuthor")})
+    @NamedQuery(name = "Complain.findByComplainAuthor", query = "SELECT c FROM Complain c WHERE c.complainAuthor = :complainAuthor"),
+    @NamedQuery(name = "Complain.findByAddingDate", query = "SELECT c FROM Complain c WHERE c.addingDate = :addingDate")})
 public class Complain implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -46,9 +51,22 @@ public class Complain implements Serializable {
     @Size(min = 1, max = 255)
     @Column(name = "type")
     private String type;
-    @Size(max = 100)
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 100)
     @Column(name = "complainAuthor")
     private String complainAuthor;
+    @Basic(optional = false)
+    @NotNull
+    @Lob
+    @Size(min = 1, max = 65535)
+    @Column(name = "complainContent")
+    private String complainContent;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "addingDate")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date addingDate;
     @JoinColumn(name = "articleID", referencedColumnName = "idArticle")
     @ManyToOne(optional = false)
     private Article articleID;
@@ -60,9 +78,12 @@ public class Complain implements Serializable {
         this.idComplain = idComplain;
     }
 
-    public Complain(Integer idComplain, String type) {
+    public Complain(Integer idComplain, String type, String complainAuthor, String complainContent, Date addingDate) {
         this.idComplain = idComplain;
         this.type = type;
+        this.complainAuthor = complainAuthor;
+        this.complainContent = complainContent;
+        this.addingDate = addingDate;
     }
 
     public Integer getIdComplain() {
@@ -87,6 +108,22 @@ public class Complain implements Serializable {
 
     public void setComplainAuthor(String complainAuthor) {
         this.complainAuthor = complainAuthor;
+    }
+
+    public String getComplainContent() {
+        return complainContent;
+    }
+
+    public void setComplainContent(String complainContent) {
+        this.complainContent = complainContent;
+    }
+
+    public Date getAddingDate() {
+        return addingDate;
+    }
+
+    public void setAddingDate(Date addingDate) {
+        this.addingDate = addingDate;
     }
 
     public Article getArticleID() {

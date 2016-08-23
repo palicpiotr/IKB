@@ -19,8 +19,8 @@ import models.Comments;
  */
 @Named(value = "commentBean")
 @SessionScoped
-public class CommentBean implements Serializable{
-    
+public class CommentBean implements Serializable {
+
     @EJB
     private CommentDAOLocal cdaol;
     //private int idArticle;
@@ -28,6 +28,15 @@ public class CommentBean implements Serializable{
     private String commentAuthor;
     private String commentContent;
     private int idArticle;
+    private String articleName;
+
+    public String getArticleName() {
+        return articleName;
+    }
+
+    public void setArticleName(String articleName) {
+        this.articleName = articleName;
+    }
 
     public int getIdArticle() {
         return idArticle;
@@ -36,7 +45,7 @@ public class CommentBean implements Serializable{
     public void setIdArticle(int idArticle) {
         this.idArticle = idArticle;
     }
-    
+
     public Comments getComment() {
         return comment;
     }
@@ -60,22 +69,22 @@ public class CommentBean implements Serializable{
     public void setCommentContent(String commentContent) {
         this.commentContent = commentContent;
     }
-    
-   public String addNewComment(int idArticle) throws Exception {
-        this.cdaol.addNewComment(idArticle, commentContent, commentAuthor );
+
+    public String addNewComment(int idArticle) throws Exception {
+        this.cdaol.addNewComment(idArticle, commentContent, commentAuthor);
         //System.out.println("MDEEEEEEEEEEEEEE " + idArticle + commentAuthor + commentContent);
         return "/AllArticles.xhtml";
     }
-   
-   //getting the page with the comment
-   public String getPageWithTheComment(int idArticle) throws Exception{
-       this.idArticle = idArticle;
-       return "/CommentsToChoosedArticle.xhtml";
-   }
-   
-   public List<Comments> getCommentsToArticle(int idArticle) throws Exception{
-       System.out.print("Comment id" + idArticle);
+
+    //getting the page with the comment
+    public String getPageWithTheComment(int idArticle) throws Exception {
+        this.idArticle = idArticle;
+        return "/CommentsToChoosedArticle.xhtml";
+    }
+
+    public List<Comments> getCommentsToArticle(int idArticle) throws Exception {
+        System.out.print("Comment id" + idArticle);
 //       this.idArticle = idArticle;
-       return this.cdaol.getCommentsToArticle(idArticle);
-   }
+        return this.cdaol.getCommentsToArticle(idArticle);
+    }
 }
