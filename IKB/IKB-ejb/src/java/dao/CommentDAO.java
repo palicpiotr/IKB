@@ -59,7 +59,7 @@ public class CommentDAO implements CommentDAOLocal {
         TypedQuery<Comments> query = entityManager.createQuery("SELECT c FROM Comments c WHERE c.idArticle = ?1", Comments.class);
         System.out.println("Id Article from DAO " + idArticle);
         //Comments com = new Comments();
-        return query.setParameter(1, idArticle).getResultList();
+        return query.setParameter(1, entityManager.getReference(Article.class, idArticle)).getResultList();
         //Object obj = query.getResultList();
         //return query.getResultList();
         //return query.setParameter(1, idArticle).getResultList();

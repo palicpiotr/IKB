@@ -50,16 +50,16 @@
 
                                         <table height="15%" width="100%">  
                                             <tr>
-                                                <td style="border-bottom: 2px solid #0077CC"><b> Name </b></td>
-                                                <td style="border-bottom: 2px solid #0077CC"><b>Adding Date </b></td>
-                                                <td style="border-bottom: 2px solid #0077CC"><b>Author </b></td>
+                                                <td style="border-bottom: 2px solid #0077CC"><b> Author </b></td>
+                                                <td style="border-bottom: 2px solid #0077CC"><b> Content </b></td>
+                                                <td style="border-bottom: 2px solid #0077CC"><b> Adding Date </b></td>
                                                 <td> </td>
                                                 <td> </td>
                                             </tr> 
-                                            <c:forEach items="#{commentBean.getCommentsToArticle(idArticle)}" var="com">
+                                            <c:forEach items="#{commentBean.getCommentsToArticle(commentBean.idArticle)}" var="com">
                                                 <tr> 
                                                     <!--<td style="display:none;"> {article.idArticle} </td>-->   
-                                                    <td><ol><li></li></ol></td>
+                                                    
                                                     <td>#{com.commentAuthor}</td>
                                                     <td>#{com.commentContent}</td>
                                                     <td>#{com.addingDateComment}</td>
