@@ -14,22 +14,14 @@
                     <tr style="height:50px;" bgcolor="151515"><td>
 
                             <table width="100%" height="100%"><tr align="center">
-                                    <td width="10%"></td>
+                                   <td width="10%"></td>
                                     <td width="15%"><img src="bg.png" width="75%" height="15%" /></td>
-                                    <td><span style="font-size: 18px; font-family: segoe ui semibold; color:#D8D8D8;"><a 
-                                                href="faces/index.xhtml" style="color:#D8D8D8;">Home</a></span></td>
                                     <td><span style="font-size: 18px; font-family: segoe ui semibold; color:#D8D8D8;"><a 
                                                 href="faces/About.xhtml" style="color:#D8D8D8;">About</a></span></td>
                                     <td><span style="font-size: 18px; font-family: segoe ui semibold; color:#D8D8D8;"><a 
-                                                href="faces/Groups.xhtml" style="color:#D8D8D8;">Article Types</a></span></td>
+                                                href="faces/index.xhtml" style="color:#D8D8D8;">Categories</a></span></td>
                                     <td><span style="font-size: 18px; font-family: segoe ui semibold; color:#D8D8D8;"><a 
-                                                href="faces/TimeTable.xhtml" style="color:#D8D8D8;">1</a></span></td>
-                                    <td><span style="font-size: 18px; font-family: segoe ui semibold; color:#D8D8D8;"><a 
-                                                href="faces/Teachers.xhtml" style="color:#D8D8D8;">2</a></span></td>
-                                    <td><span style="font-size: 18px; font-family: segoe ui semibold; color:#D8D8D8;"><a 
-                                                href="faces/Cathedras.xhtml" style="color:#D8D8D8;">3</a></span></td>
-                                    <td><span style="font-size: 18px; font-family: segoe ui semibold; color:#D8D8D8;"><a 
-                                                href="faces/Subjects.xhtml" style="color:#D8D8D8;">)))</a></span></td>
+                                                href="faces/AllArticles.xhtml" style="color:#D8D8D8;">All Articles</a></span></td>
                                     <td width="10%"></td>
 
                                     <td><h:outputLabel style="font-family: segoe ui semibold;font-size: 15px;color:#D8D8D8; " value="Welcome, #{request.remoteUser}" /></td>
@@ -76,7 +68,7 @@
                                         </table>
                                         <br />
                                         <br />
-
+                                        <h> <h:commandLink action="/ChoosedArticleName.xhtml" style="color:#0077CC;" value="Back" /></h>
                                     </td>
                                     <td width="10%"></td></tr>
                             </table>

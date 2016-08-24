@@ -4,15 +4,16 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Facelet Title</title>
+        <title>About</title>
     </h:head>
     <h:body>
-        <f:view> 
+        <f:view>   
             <h:form>
                 <table width="100%" height="100%">
                     <tr style="height:50px;" bgcolor="151515"><td>
+
                             <table width="100%" height="100%"><tr align="center">
-                                   <td width="10%"></td>
+                                    <td width="10%"></td>
                                     <td width="15%"><img src="bg.png" width="75%" height="15%" /></td>
                                     <td><span style="font-size: 18px; font-family: segoe ui semibold; color:#D8D8D8;"><a 
                                                 href="faces/About.xhtml" style="color:#D8D8D8;">About</a></span></td>
@@ -21,37 +22,34 @@
                                     <td><span style="font-size: 18px; font-family: segoe ui semibold; color:#D8D8D8;"><a 
                                                 href="faces/AllArticles.xhtml" style="color:#D8D8D8;">All Articles</a></span></td>
                                     <td width="10%"></td>
-                                    
+
                                     <td><h:outputLabel style="font-family: segoe ui semibold;font-size: 15px;color:#D8D8D8; " value="Welcome, #{request.remoteUser}" /></td>
-                                    <td width="10%"><h:commandButton class="button" onmouseover="this.style.background = '#0077CC';this.style.color = 'white'" onmouseout="this.style.background = 'white';this.style.color = '#0077CC'" value="LogOff" action="#{userBean.logout()}" /></td>
+
+
+                                    <td width="10%"><h:commandButton class="button" 
+                                                                     onmouseover="this.style.background = '#0077CC';this.style.color = 'white'" onmouseout="this.style.background = 'white';this.style.color = '#0077CC'" value="LogOff" action="#{userBean.logout()}" /></td>
                                 </tr></table></td></tr>
                     <tr><td>
+                            <tr>
+                            </tr>
                             <table width="100%" height="100%">
                                 <tr><td width="10%"></td>
                                     <td>
                                         <h1> 
-                                            Edit Article Type Name
+                                            <strong> This information not very important </strong>
                                         </h1> 
-                                        <table height="15%" width="100%">   
-                                            <tr>
-                                            </tr>
-                                            <tr><td width="15%">
-                                                    <h:outputLabel id="name" ></h:outputLabel>
-                                                    <b><h:outputLabel value="Article Type Name" for="articleTypeName"/></b>
-                                                </td><td valign="bottom">
-                                                    <h:inputText id="articleTypeName" value="#{postBean.articleTypeName}" required="true"> </h:inputText> 
-                                                    <h:message for="articleTypeName" style="color:red" /> <br />
-                                                </td></tr>
-                                            <tr><td></td>
-                                                <td><h:commandButton class="button" onmouseover="this.style.background = '#0077CC';this.style.color = 'white'" onmouseout="this.style.background = 'white';this.style.color = '#0077CC'" value="Edit" action="#{postBean.editArticleTypeName()}"/></td>
-                                            </tr>
-                                        </table>
+
+
+                                        <br />
+                                        <br />
+
                                     </td>
-                                    <td width="10%"></td></tr>                             
-                            </table>    
+                                    <td width="10%"></td></tr>
+                            </table>
+                            <br/><br/>
                         </td></tr>
                 </table>
-            </h:form>    
+            </h:form>
         </f:view>
     </h:body>
 </html>

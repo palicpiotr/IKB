@@ -5,6 +5,9 @@
         <group>
             <file>file:/D:/Freelance/Posts/Project/IKB/IKB-ejb/src/java/dao/CommentDAOLocal.java</file>
             <file>file:/D:/Freelance/Posts/Project/IKB/IKB-ejb/src/java/dao/CommentDAO.java</file>
+            <file>file:/D:/Freelance/Posts/Project/IKB/IKB-ejb/src/java/dao/ArticleDAO.java</file>
+            <file>file:/D:/Freelance/Posts/Project/IKB/IKB-ejb/src/java/dao/ComplainDAOLocal.java</file>
+            <file>file:/D:/Freelance/Posts/Project/IKB/IKB-ejb/src/java/dao/ComplainDAO.java</file>
         </group>
     </open-files>
 </project-private>

@@ -4,7 +4,7 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Facelet Title</title>
+        <title>New Comment</title>
     </h:head>
     <h:body>
        <f:view> 
@@ -15,20 +15,13 @@
                                     <td width="10%"></td>
                                     <td width="15%"><img src="bg.png" width="75%" height="15%" /></td>
                                     <td><span style="font-size: 18px; font-family: segoe ui semibold; color:#D8D8D8;"><a 
-                                                href="faces/index.xhtml" style="color:#D8D8D8;">Home</a></span></td>
-                                    <td><span style="font-size: 18px; font-family: segoe ui semibold; color:#D8D8D8;"><a 
                                                 href="faces/About.xhtml" style="color:#D8D8D8;">About</a></span></td>
                                     <td><span style="font-size: 18px; font-family: segoe ui semibold; color:#D8D8D8;"><a 
-                                                href="faces/Groups.xhtml" style="color:#D8D8D8;">Groups</a></span></td>
+                                                href="faces/index.xhtml" style="color:#D8D8D8;">Categories</a></span></td>
                                     <td><span style="font-size: 18px; font-family: segoe ui semibold; color:#D8D8D8;"><a 
-                                                href="faces/TimeTable.xhtml" style="color:#D8D8D8;">TimeTable</a></span></td>
-                                    <td><span style="font-size: 18px; font-family: segoe ui semibold; color:#D8D8D8;"><a 
-                                                href="faces/Teachers.xhtml" style="color:#D8D8D8;">Teachers</a></span></td>
-                                    <td><span style="font-size: 18px; font-family: segoe ui semibold; color:#D8D8D8;"><a 
-                                                href="faces/Cathedras.xhtml" style="color:#D8D8D8;">Cathedras</a></span></td>
-                                    <td><span style="font-size: 18px; font-family: segoe ui semibold; color:#D8D8D8;"><a 
-                                                href="faces/Subjects.xhtml" style="color:#D8D8D8;">Subjects</a></span></td>
+                                                href="faces/AllArticles.xhtml" style="color:#D8D8D8;">All Articles</a></span></td>
                                     <td width="10%"></td>
+                                    
                                     <td><h:outputLabel style="font-family: segoe ui semibold;font-size: 15px;color:#D8D8D8; " value="Welcome, #{request.remoteUser}" /></td>
                                     <td width="10%"><h:commandButton class="button" onmouseover="this.style.background = '#0077CC';this.style.color = 'white'" onmouseout="this.style.background = 'white';this.style.color = '#0077CC'" value="LogOff" action="#{userBean.logout()}" /></td>
                                 </tr></table></td></tr>
@@ -73,9 +66,12 @@
                                                     <h:commandButton class="button" value="Add New Comment" action="#{commentBean.addNewComment(articleBean.idArticle)}"/> 
                                                 </th> 
                                             </tr> 
+                                            
                                         </table>
+                                        <br></br>
+                                       
                                     </td>
-                                    <td width="10%"></td></tr>                             
+                                    <td width="10%"> </td></tr>                             
                             </table>    
                         </td></tr>
                 </table>

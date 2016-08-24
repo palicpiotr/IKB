@@ -59,7 +59,7 @@ public class PostBean implements Serializable {
     //this method is used to adding the new cateory of artices
     public String addNewArticleType() throws Exception {
         postDAOLocal.addNewAricleType(articleTypeName);
-        return "/AllArticleTypes.xhtml";
+        return "/index.xhtml";
     }
 
     //this method is used to redirect editing page
@@ -78,13 +78,13 @@ public class PostBean implements Serializable {
         this.postDAOLocal.editArticleType(localId, articleTypeName);
         //System.out.println("into the method "+ localId);
         //System.out.println("into the method "+ articleTypeName);
-        return "/AllArticleTypes.xhtml";
+        return "/index.xhtml";
     }
 
     //this method is used to remove the article type name
     public String removeArticleTypeBean(int idArticleType) throws Exception {
         this.postDAOLocal.removeArticleType(idArticleType);
-        return "/AllArticleTypes.xhtml";
+        return "/index.xhtml";
     }
 
     //this method is used to get the page where the the articles in article type

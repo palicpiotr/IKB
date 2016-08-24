@@ -98,7 +98,7 @@ public class CommentDAO implements CommentDAOLocal {
     @Override
     public List<Comments> getCommentsToArticle(int idArticle) throws Exception {
         TypedQuery<Comments> query = entityManager.createQuery("SELECT c FROM Comments c WHERE c.idArticle = ?1", Comments.class);
-        System.out.println("Id Article from DAO " + idArticle);
+        //System.out.println("Id Article from DAO " + idArticle);
         //Comments com = new Comments();
         return query.setParameter(1, entityManager.getReference(Article.class, idArticle)).getResultList();
         //Object obj = query.getResultList();

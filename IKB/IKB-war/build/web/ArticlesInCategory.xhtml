@@ -13,23 +13,16 @@
                 <table width="100%" height="100%">
                     <tr style="height:50px;" bgcolor="151515"><td>
                             <table width="100%" height="100%"><tr align="center">
-                                    <td width="10%"></td>
+                                   <td width="10%"></td>
                                     <td width="15%"><img src="bg.png" width="75%" height="15%" /></td>
-                                    <td><span style="font-size: 18px; font-family: segoe ui semibold; color:#D8D8D8;"><a 
-                                                href="faces/index.xhtml" style="color:#D8D8D8;">Home</a></span></td>
                                     <td><span style="font-size: 18px; font-family: segoe ui semibold; color:#D8D8D8;"><a 
                                                 href="faces/About.xhtml" style="color:#D8D8D8;">About</a></span></td>
                                     <td><span style="font-size: 18px; font-family: segoe ui semibold; color:#D8D8D8;"><a 
-                                                href="faces/Groups.xhtml" style="color:#D8D8D8;">Groups</a></span></td>
+                                                href="faces/index.xhtml" style="color:#D8D8D8;">Categories</a></span></td>
                                     <td><span style="font-size: 18px; font-family: segoe ui semibold; color:#D8D8D8;"><a 
-                                                href="faces/TimeTable.xhtml" style="color:#D8D8D8;">TimeTable</a></span></td>
-                                    <td><span style="font-size: 18px; font-family: segoe ui semibold; color:#D8D8D8;"><a 
-                                                href="faces/Teachers.xhtml" style="color:#D8D8D8;">Teachers</a></span></td>
-                                    <td><span style="font-size: 18px; font-family: segoe ui semibold; color:#D8D8D8;"><a 
-                                                href="faces/Cathedras.xhtml" style="color:#D8D8D8;">Cathedras</a></span></td>
-                                    <td><span style="font-size: 18px; font-family: segoe ui semibold; color:#D8D8D8;"><a 
-                                                href="faces/Subjects.xhtml" style="color:#D8D8D8;">Subjects</a></span></td>
+                                                href="faces/AllArticles.xhtml" style="color:#D8D8D8;">All Articles</a></span></td>
                                     <td width="10%"></td>
+                                    
                                     <td><h:outputLabel style="font-family: segoe ui semibold;font-size: 15px;color:#D8D8D8; " value="Welcome, #{request.remoteUser}" /></td>
                                     <td width="10%"><h:commandButton class="button" onmouseover="this.style.background = '#0077CC';this.style.color = 'white'" onmouseout="this.style.background = 'white';this.style.color = '#0077CC'" value="LogOff" action="#{userBean.logout()}" /></td>
                                 </tr></table></td></tr>
@@ -55,6 +48,12 @@
                                                 <td style="border-bottom: 2px solid #0077CC"> Category </td>
                                                 <td style="border-bottom: 2px solid #0077CC"> Adding Date </td>
                                                 <td style="border-bottom: 2px solid #0077CC"> Author </td>
+                                                <td style="border-bottom: 2px solid #0077CC"> Delete </td>
+                                                <td style="border-bottom: 2px solid #0077CC"> Edit </td>
+                                                <td style="border-bottom: 2px solid #0077CC"> Comment this </td>
+                                                <td style="border-bottom: 2px solid #0077CC"> Comments </td>
+                                                <td style="border-bottom: 2px solid #0077CC"> Complain that </td>
+                                                <td style="border-bottom: 2px solid #0077CC"> Complains </td>
                                                 <td> </td>
                                             </tr>  
                                             <c:forEach items="#{postBean.getArticlesInArticletypeB(postBean.idArticletype)}" var="art">
@@ -65,16 +64,18 @@
                                                     <td> #{art.idType.name} </td>
                                                     <td> #{art.addingDate} </td>
                                                     <td> #{art.articleAuthor} </td>
-                                                    <!--Doesn't work the delete one-->
-                                                    <td width="7%"><h:commandButton class="button" onmouseover="this.style.background = '#0077CC';this.style.color = 'white'" onmouseout="this.style.background = 'white';this.style.color = '#0077CC'"  action="#{articleBean.removeArticle(art.idArticle)}" value="Delete"/></td>
-                                                    <!--Doesn't work the edit mode in edit page cause the date is nor parsed-->
-                                                    <td><h:commandButton class="button" onmouseover="this.style.background = '#0077CC';this.style.color = 'white'" onmouseout="this.style.background = 'white';this.style.color = '#0077CC'" action="#{articleBean.toEditArticle(art.idArticle, postBean.idArticletype)}" value="Edit"/></td>
+                                                    <td width="7%"><h:commandButton class="button" action="#{articleBean.removeArticle(art.idArticle)}" value="Delete"/></td>                                                   
+                                                    <td><h:commandButton class="button" action="#{articleBean.toEditArticle(art.idArticle, postBean.idArticletype)}" value="Edit"/></td>                                                    
+                                                    <td><h:commandButton class="button" action="#{articleBean.getCommentPage(art.idArticle)}" value="Comment"></h:commandButton></td>                                                    
+                                                    <td><h:commandButton class="button" action="#{commentBean.getPageWithTheComment(art.idArticle)}" value="Comments"></h:commandButton></td>
+                                                    <td><h:commandButton class="button" action="#{articleBean.getComplainPage(art.idArticle)}" value="Complain"></h:commandButton></td>                                                    
+                                                    <td><h:commandButton class="button" action="#{complainBean.getPageWithTheComplain(art.idArticle)}" value="Complains"></h:commandButton></td>
                                                 </tr> 
                                             </c:forEach>
                                         </table>
                                         <br />
                                         <br />
-                                        <h> <h:commandLink action="/AllArticletypes.xhtml" style="color:#0077CC;" value="Return To Categpry List" /></h>
+                                        <h> <h:commandLink action="/index.xhtml" style="color:#0077CC;" value="Return To Category List" /></h>
                                         <br />
                                         <br />
 
