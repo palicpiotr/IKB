@@ -29,6 +29,8 @@ public class CommentBean implements Serializable {
     private String commentContent;
     private int idArticle;
     private String articleName;
+    private int localId;
+    private int localId2;
 
     public String getArticleName() {
         return articleName;
@@ -87,4 +89,27 @@ public class CommentBean implements Serializable {
 //       this.idArticle = idArticle;
         return this.cdaol.getCommentsToArticle(idArticle);
     }
+    
+    public String removeComment(int idComment) throws Exception{
+        this.cdaol.removeComment(idComment);
+        return "/CommentsToChoosedArticle.xhtml";
+    }
+
+//    public String toEditComment(int idComment, int idArticle) throws Exception {
+//        localId = idComment;
+//        localId2 = idArticle;
+//        //here must be some code
+//        Comments comments = this.cdaol.getCommentInfo(idComment);
+//        this.commentAuthor = comments.getCommentAuthor();
+//        this.commentContent = comments.getCommentContent();
+//        return "/EditComment.xhtml";
+//    }
+//
+//    //this method is used to save changes in edit mode
+//    public String editComment() throws Exception {
+//        //System.out.println("local id ++++++++++ " + localId + idArticletype + articleName + content + addingDate);
+//        //System.out.println("Id Article Type ++++++++++ " + idArticletype);
+//        this.cdaol.editSelectedComment(localId, commentContent, commentAuthor, localId2);
+//        return "/ArticlesInCategory.xhtml";
+//    }
 }

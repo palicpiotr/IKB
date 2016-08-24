@@ -8,7 +8,7 @@
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-         <f:view>   
+        <f:view>   
             <h:form>
                 <table width="100%" height="100%">
                     <tr style="height:50px;" bgcolor="151515"><td>
@@ -47,9 +47,9 @@
                                         <h1> Comments for article:</h1>
                                         <h1> 
                                             <c:forEach items="#{commentBean.getCommentsToArticle(commentBean.idArticle)}" var="val">
-                                                 #{val.idArticle.articleName}
+                                                #{val.idArticle.articleName}
                                             </c:forEach>
-                                           
+
                                         </h1> 
 
                                         <table height="15%" width="100%">  
@@ -57,23 +57,24 @@
                                                 <td style="border-bottom: 2px solid #0077CC"><b> Author </b></td>
                                                 <td style="border-bottom: 2px solid #0077CC"><b> Content </b></td>
                                                 <td style="border-bottom: 2px solid #0077CC"><b> Adding Date </b></td>
+                                                <td style="border-bottom: 2px solid #0077CC"><b> Delete</b></td>
                                                 <td> </td>
                                                 <td> </td>
                                             </tr> 
                                             <c:forEach items="#{commentBean.getCommentsToArticle(commentBean.idArticle)}" var="com">
                                                 <tr>
-                                                 
                                                     <!--<td style="display:none;"> {article.idArticle} </td>-->                                                      
                                                     <td>#{com.commentAuthor}</td>
                                                     <td>#{com.commentContent}</td>
                                                     <td>#{com.addingDateComment}</td>
+                                                    <td width="7%"><h:commandButton class="button"  action="#{commentBean.removeComment(com.idComment)}" value="Delete"/></td>
                                                     <td></td>
                                                 </tr> 
                                             </c:forEach>
                                         </table>
                                         <br />
                                         <br />
-                                       
+
                                     </td>
                                     <td width="10%"></td></tr>
                             </table>

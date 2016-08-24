@@ -21,4 +21,6 @@ public interface ComplainDAOLocal {
     public List<Complain> getComplainsForArticle(int idArticle) throws Exception;
     
     public void addTheComplain(int articleId, String complainType, String complainAuthor, String complainContent) throws Exception;
+    
+    public boolean removeComplain(int idComplain) throws Exception;
 }

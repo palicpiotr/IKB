@@ -68,15 +68,11 @@
                                                     <td> #{art.idType.name} </td>
                                                     <td> #{art.addingDate} </td>
                                                     <td> #{art.articleAuthor} </td>
-                                                    <!--Doesn't work the delete one-->
-                                                    <td width="7%"><h:commandButton class="button" onmouseover="this.style.background = '#0077CC';this.style.color = 'white'" onmouseout="this.style.background = 'white';this.style.color = '#0077CC'"  value="Delete"/></td>
-                                                    <!--Doesn't work the edit mode in edit page cause the date is nor parsed-->
-                                                    <td><h:commandButton class="button" value="Edit"/></td>
-                                                    <td><h:commandButton class="button" action="#{articleBean.getCommentPage(art.idArticle)}" value="Comment"></h:commandButton></td>
-                                                    <!--<td><h:commandButton class="button" action="{commentBean.getCommentsToArticle(art.idArticle)}" value="Comments"></h:commandButton></td>-->
+                                                    <td width="7%"><h:commandButton class="button"  action="#{articleBean.removeArticle(art.idArticle)}" value="Delete"/></td>
+                                                    <td><h:commandButton class="button" action="#{articleBean.toEditArticle(art.idArticle, postBean.idArticletype)}" value="Edit"/></td>
+                                                    <td><h:commandButton class="button" action="#{articleBean.getCommentPage(art.idArticle)}" value="Comment"></h:commandButton></td>                                                    
                                                     <td><h:commandButton class="button" action="#{commentBean.getPageWithTheComment(art.idArticle)}" value="Comments"></h:commandButton></td>
-                                                     <td><h:commandButton class="button" action="#{articleBean.getComplainPage(art.idArticle)}" value="Complain"></h:commandButton></td>
-                                                    <!--<td><h:commandButton class="button" action="{commentBean.getCommentsToArticle(art.idArticle)}" value="Comments"></h:commandButton></td>-->
+                                                    <td><h:commandButton class="button" action="#{articleBean.getComplainPage(art.idArticle)}" value="Complain"></h:commandButton></td>                                                    
                                                     <td><h:commandButton class="button" action="#{complainBean.getPageWithTheComplain(art.idArticle)}" value="Complains"></h:commandButton></td>
                                                 </tr> 
                                             </c:forEach>

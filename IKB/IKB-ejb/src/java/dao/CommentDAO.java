@@ -9,6 +9,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import models.Article;
 import models.Comments;
@@ -23,9 +24,12 @@ public class CommentDAO implements CommentDAOLocal {
     @PersistenceContext(unitName = "IKB")
     private EntityManager entityManager;
 
+//    Query query = entityManager.createQuery("SELECT a FROM Articletype a", Articletype.class);
+//        return query.getResultList();
     @Override
     public List<Comments> getAllComments() throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Query query = entityManager.createQuery("SELECT c FROM Comments c", Comments.class);
+        return query.getResultList();
     }
 
     @Override
@@ -44,14 +48,51 @@ public class CommentDAO implements CommentDAOLocal {
         entityManager.merge(article);
     }
 
+//    @Override
+//    public boolean editSelectedComment(int idComment, String commentContent, String commentAuthor, int idArticle) throws Exception {
+//        Comments comments = entityManager.getReference(Comments.class, idComment);
+//        Article article = entityManager.getReference(Article.class, comments.getIdArticle().getIdArticle());
+//        /*boolean remove*/ article.getCommentsList().remove(comments);
+//        entityManager.merge(article);
+//        comments.setCommentAuthor(commentAuthor);
+//        comments.setCommentContent(commentContent);
+//        java.util.Calendar calendar = java.util.Calendar.getInstance();
+//        java.util.Date addingDate = calendar.getTime();
+//        comments.setAddingDateComment(addingDate);
+//        comments.setIdArticle(entityManager.getReference(Article.class, idArticle));
+//        article = entityManager.getReference(Article.class, idArticle);
+//        article.getCommentsList().add(comments);
+//        entityManager.merge(article);
+//        return true;
+    //}
+// @Override
+//    public boolean editArticle(int idArticle, String articleName, String content, /*Date addingDate,*/ int idType, String articleAuthor) throws Exception {
+//        Article article = entityManager.getReference(Article.class, idArticle);
+//        Articletype articleType = entityManager.getReference(Articletype.class, article.getIdType().getIdType());
+//        articleType.getArticleList().remove(article);
+//        entityManager.merge(articleType);
+//        article.setArticleName(articleName);
+//        article.setContent(content);
+//        java.util.Calendar calendar = java.util.Calendar.getInstance();
+//        java.util.Date addingDate = calendar.getTime();
+//        article.setAddingDate(addingDate);
+//        article.setArticleAuthor(articleAuthor);
+//        article.setIdType(entityManager.getReference(Articletype.class, idType));
+//        articleType = entityManager.getReference(Articletype.class, idType);
+////        System.out.println("AAA: " + idType);
+////        System.out.println("AAA: " + addingDate);
+////        System.out.println("AAA: " + articleType.getIdType());
+//        articleType.getArticleList().add(article);
+//        entityManager.merge(articleType);
+//        return true;
+//    }
+    
     @Override
-    public boolean editSelectedComment(int idArticle, String commentContent, String commentAuthor) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public boolean removeComment(int idArticle) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean removeComment(int idComment) throws Exception {
+        Article article = entityManager.getReference(Article.class, entityManager.getReference(Comments.class, idComment).getIdArticle().getIdArticle());
+        entityManager.remove(entityManager.getReference(Comments.class, idComment));
+        entityManager.refresh(article);
+        return true;
     }
 
     @Override
@@ -67,4 +108,9 @@ public class CommentDAO implements CommentDAOLocal {
 //     public List<Article> getArticleContentByName(String articleName) throws Exception {
 //        TypedQuery<Article> query = entityManager.createQuery("SELECT a FROM Article a WHERE a.articleName = ?1", Article.class);
 //        return query.setParameter(1, articleName).getResultList();
+
+    @Override
+    public Comments getCommentInfo(int idComment) throws Exception {
+        return entityManager.getReference(Comments.class, idComment);
+    }
 }

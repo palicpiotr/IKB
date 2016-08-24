@@ -79,5 +79,10 @@ public class ComplainBean implements Serializable {
         //System.out.println("MDEEEEEEEEEEEEEE " + idArticle + commentAuthor + commentContent);
         return "/AllArticles.xhtml";
     }
+     
+     public String removeComplain(int idComplain) throws Exception{
+         this.complainDAOLocal.removeComplain(idComplain);
+         return "ComplainsToChoosedArticles.xhtml";
+     }
 
 }

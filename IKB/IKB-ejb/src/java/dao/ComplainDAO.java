@@ -52,4 +52,12 @@ public class ComplainDAO implements ComplainDAOLocal {
         article.getComplainList().add(complain);
         entityManager.merge(article);
     }
+
+    @Override
+    public boolean removeComplain(int idComplain) throws Exception {
+        Article article = entityManager.getReference(Article.class, entityManager.getReference(Complain.class, idComplain).getArticleID().getIdArticle());
+        entityManager.remove(entityManager.getReference(Complain.class, idComplain));
+        entityManager.refresh(article);
+        return true;
+    }
 }

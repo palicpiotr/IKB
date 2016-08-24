@@ -16,13 +16,17 @@ import models.Comments;
 @Local
 public interface CommentDAOLocal {
     
+    //not used one
     public List<Comments> getAllComments() throws Exception;
     
-    public void addNewComment(int idArticle, String commentContent, /*Date addingDateComment*/ String commentAuthor) throws Exception;
+    public void addNewComment(int idComment, String commentContent, /*Date addingDateComment*/ String commentAuthor) throws Exception;
+   
+    //public boolean editSelectedComment(int idComment, String commentContent, /*Date addingDateComment*/ String commentAuthor, int idArticle) throws Exception;
     
-    public boolean editSelectedComment(int idArticle, String commentContent, /*Date addingDateComment*/ String commentAuthor) throws Exception;
-    
-    public boolean removeComment(int idArticle) throws Exception;
+    //need
+    public boolean removeComment(int idComment) throws Exception;
     
     public List<Comments> getCommentsToArticle(int idArticle) throws Exception;
+    
+    public Comments getCommentInfo(int idComment) throws Exception;
 }
