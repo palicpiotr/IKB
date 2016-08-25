@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Login</title>
+        <link rel="icon" href="http://vladmaxi.net/favicon.ico" type="image/x-icon"></link>
+        <link rel="shortcut icon" href="http://vladmaxi.net/favicon.ico" type="image/x-icon"></link>
+        <link rel="stylesheet" href="resources/autor.css" media="screen" type="text/css" />
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'></link>
+    </h:head>
+    <h:body>
+        <div id="login-form">
+            <h1>Autorisation</h1>
+
+            <form method="post" action="j_security_check">
+                <input type="text" name="j_username"/> login
+                <br/><br/>
+                <input type="password" name="j_password"/> password
+                <br/><br/>
+                <input type="submit" value="войти"/>
+            </form>
+
+            <h:form>
+                <c:choose> 
+                    <c:when test="${!empty request.remoteUser}">
+                        <h:outputLabel value=" Добро пожаловать, #{request.remoteUser}"/>
+                    </c:when>
+                    <c:otherwise>
+                        Регистрация в системе
+                    </c:otherwise>
+                </c:choose>
+                <br/>
+                <h:commandButton value="Регистрация" action="/Registration.xhtml" class="button"
+                                 onmouseover="this.style.background = '#0077CC';
+                                         this.style.color = 'white'" onmouseout="this.style.background = 'white';this.style.color = '#0077CC'"/>
+            </h:form>
+            <br/><br/></div>
+    </h:body>
+</html>
+

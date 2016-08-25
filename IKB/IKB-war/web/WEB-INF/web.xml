@@ -21,7 +21,6 @@
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
     </servlet-mapping>
-
     <session-config>
         <session-timeout>
             30
@@ -30,8 +29,8 @@
     <welcome-file-list>
         <welcome-file>faces/index.xhtml</welcome-file>
     </welcome-file-list>
-<!--
- <error-page>
+    
+    <error-page>
         <error-code>403</error-code>
         <location>/403.xhtml</location>
     </error-page>
@@ -50,58 +49,19 @@
     <error-page>
         <exception-type>java.lang.NullPointerException</exception-type>
         <location>/NullPointerException.xhtml</location>
-    </error-page> 
-<security-constraint>
+    </error-page>
+    
+    <security-constraint>
         <display-name>Ограничение1</display-name>
         <web-resource-collection>
             <web-resource-name>admin</web-resource-name>
             <description/>
-            <url-pattern>/faces/Groups.xhtml</url-pattern>
-        </web-resource-collection>
-        <web-resource-collection>
-            <web-resource-name>admin1</web-resource-name>
-            <description/>
-            <url-pattern>/faces/AddNewGroup.xhtml</url-pattern>
-        </web-resource-collection>
-        <web-resource-collection>
-            <web-resource-name>admin2</web-resource-name>
-            <description/>
-            <url-pattern>/faces/AddNewStudent.xhtml</url-pattern>
-        </web-resource-collection>
-        <web-resource-collection>
-            <web-resource-name>admin3</web-resource-name>
-            <description/>
-            <url-pattern>/faces/AddNewSubject.xhtml</url-pattern>
-        </web-resource-collection>
-        <web-resource-collection>
-            <web-resource-name>admin4</web-resource-name>
-            <description/>
-            <url-pattern>/faces/AddNewTeacher.xhtml</url-pattern>
-        </web-resource-collection>
-        <web-resource-collection>
-            <web-resource-name>admin5</web-resource-name>
-            <description/>
-            <url-pattern>/faces/AllUsers.xhtml</url-pattern>
-        </web-resource-collection>
-        <web-resource-collection>
-            <web-resource-name>admin6</web-resource-name>
-            <description/>
-            <url-pattern>/faces/EditCathedra.xhtml</url-pattern>
-        </web-resource-collection>
-        <web-resource-collection>
-            <web-resource-name>admin7</web-resource-name>
-            <description/>
-            <url-pattern>/faces/EditGroup.xhtml</url-pattern>
+            <url-pattern>/faces/EditArticleTypeName.xhtml</url-pattern>
         </web-resource-collection>
         <web-resource-collection>
             <web-resource-name>admin8</web-resource-name>
             <description/>
-            <url-pattern>/faces/EditStudent.xhtml</url-pattern>
-        </web-resource-collection>
-        <web-resource-collection>
-            <web-resource-name>admin9</web-resource-name>
-            <description/>
-            <url-pattern>/faces/EditSubject.xhtml</url-pattern>
+            <url-pattern>/faces/AddNewArticleType.xhtml</url-pattern>
         </web-resource-collection>
         <auth-constraint>
             <description/>
@@ -113,50 +73,45 @@
         <web-resource-collection>
             <web-resource-name>student</web-resource-name>
             <description/>
-            <url-pattern>/faces/Groups.xhtml</url-pattern>
+            <url-pattern>/faces/About.xhtml</url-pattern>
         </web-resource-collection>
         <web-resource-collection>
             <web-resource-name>student1</web-resource-name>
             <description/>
-            <url-pattern>/faces/Cathedras.xhtml</url-pattern>
+            <url-pattern>/faces/AddComment.xhtml</url-pattern>
         </web-resource-collection>
         <web-resource-collection>
             <web-resource-name>student2</web-resource-name>
             <description/>
-            <url-pattern>/faces/GroupLists.xhtml</url-pattern>
+            <url-pattern>/faces/AddComplain.xhtml</url-pattern>
         </web-resource-collection>
         <web-resource-collection>
             <web-resource-name>student3</web-resource-name>
             <description/>
-            <url-pattern>/faces/GroupRateList.xhtml</url-pattern>
+            <url-pattern>/faces/AddNewArticle.xhtml</url-pattern>
         </web-resource-collection>
         <web-resource-collection>
             <web-resource-name>student4</web-resource-name>
             <description/>
-            <url-pattern>/faces/GroupSessionState.xhtml</url-pattern>
+            <url-pattern>/faces/AllArticles.xhtml</url-pattern>
         </web-resource-collection>
         <web-resource-collection>
             <web-resource-name>student5</web-resource-name>
             <description/>
-            <url-pattern>/faces/StudentsInGroup.xhtml</url-pattern>
+            <url-pattern>/faces/ArticlesInCategory.xhtml</url-pattern>
         </web-resource-collection>
         <web-resource-collection>
             <web-resource-name>student6</web-resource-name>
             <description/>
-            <url-pattern>/faces/Subjects.xhtml</url-pattern>
+            <url-pattern>/faces/ChoosedArticleName.xhtml</url-pattern>
         </web-resource-collection>
         <web-resource-collection>
             <web-resource-name>student7</web-resource-name>
             <description/>
-            <url-pattern>/faces/Teachers.xhtml</url-pattern>
+            <url-pattern>/faces/CommentsToChoosedArticle.xhtml</url-pattern>
         </web-resource-collection>
         <web-resource-collection>
             <web-resource-name>student8</web-resource-name>
-            <description/>
-            <url-pattern>/faces/TimeTable.xhtml</url-pattern>
-        </web-resource-collection>
-        <web-resource-collection>
-            <web-resource-name>student9</web-resource-name>
             <description/>
             <url-pattern>/faces/index.xhtml</url-pattern>
         </web-resource-collection>
@@ -164,25 +119,25 @@
             <description/>
             <role-name>student</role-name>
             <role-name>admin</role-name>
-            <role-name>teacher</role-name>
+            <role-name>moderator</role-name>
         </auth-constraint>
     </security-constraint>
     <security-constraint>
         <display-name>Ограничение3</display-name>
         <web-resource-collection>
-            <web-resource-name>teacher</web-resource-name>
+            <web-resource-name>moderator</web-resource-name>
             <description/>
-            <url-pattern>/faces/AddNewMarkToList.xhtml</url-pattern>
+            <url-pattern>/faces/EditArticle.xhtml</url-pattern>
         </web-resource-collection>
         <web-resource-collection>
-            <web-resource-name>teacher1</web-resource-name>
+            <web-resource-name>moderator1</web-resource-name>
             <description/>
-            <url-pattern>/faces/AddNewPointToRateList.xhtml</url-pattern>
+            <url-pattern>/faces/ComplainsToChoosedArticle.xhtml</url-pattern>
         </web-resource-collection>
         <auth-constraint>
             <description/>
             <role-name>admin</role-name>
-            <role-name>teacher</role-name>
+            <role-name>moderator</role-name>
         </auth-constraint>
     </security-constraint>
     <login-config>
@@ -199,10 +154,10 @@
     </security-role>
     <security-role>
         <description/>
-        <role-name>teacher</role-name>
+        <role-name>moderator</role-name>
     </security-role>
     <security-role>
         <description/>
         <role-name>student</role-name>
-    </security-role> -->
+    </security-role>
 </web-app>

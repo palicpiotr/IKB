@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Error</title>
+        <link rel="stylesheet" href="resources/styles.css"></link>
+        <link rel="stylesheet" href="resources/style.css"></link>
+    </h:head>
+    <h:body>
+        <f:view>
+            <h:form>
+                <div class="block">
+                    <span style="font-family: segoe ui semibold;font-size: 30px;color: red;">Неправильный логин или пароль. Проверьте свои авторизационные данные!</span>
+                    <br/><br/>
+                    <h:commandButton class="button" action="faces/login.xhtml" onmouseover="this.style.background = '#0077CC';this.style.color = 'white'" onmouseout="this.style.background = 'white';this.style.color = '#0077CC'" value="Назад"/>
+                </div> 
+            </h:form>
+        </f:view>
+    </h:body>
+</html>
+
