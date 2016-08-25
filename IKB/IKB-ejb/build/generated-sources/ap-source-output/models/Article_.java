@@ -9,7 +9,7 @@ import models.Articletype;
 import models.Comments;
 import models.Complain;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2016-08-25T21:57:01")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2016-08-26T01:40:09")
 @StaticMetamodel(Article.class)
 public class Article_ { 
 

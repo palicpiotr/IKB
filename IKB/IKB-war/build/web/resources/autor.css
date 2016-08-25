@@ -1,144 +1,102 @@
 @charset "utf-8";
+@import url(http://weloveiconfonts.com/api/?family=fontawesome);
+@import url(http://meyerweb.com/eric/tools/css/reset/reset.css);
 
-html { 
-  background: url(../images/TebPWZ6.jpg) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+/* ---------- FONTAWESOME ---------- */
+
+[class*="fontawesome-"]:before {
+  font-family: 'FontAwesome', sans-serif;
 }
+
+/* ---------- GENERAL ---------- */
 
 body {
-	color: #ff8b3d;
-  font-family: 'Open Sans', sans-serif;
+	background: url(../images/TebPWZ6.jpg) repeat;
+	color: #000;
+	font-family: "Varela Round", Arial, Helvetica, sans-serif;
 	font-size: 16px;
-
+	line-height: 1.5em;
 }
 
-#login-form {
-	background-color: #363636;
-	border-radius: 5px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;		
-	margin: 150px auto;
-	width: 300px;
-  font-family: 'Open Sans', sans-serif;
-	font-size: 16px;
-  -webkit-box-shadow:  0px 10px 20px 0px rgba(0, 0, 0, 0.3);
-   box-shadow:  0px 10px 20px 0px rgba(0, 0, 0, 0.3);
-  
+input {
+	border: none;
+	font-family: inherit;
+	font-size: inherit;
+	font-weight: inherit;
+	line-height: inherit;
+	-webkit-appearance: none;
 }
 
-#login-form h1 {
-	background-color: #292829;
-	border-radius: 5px 5px 0px 0px;
-	-moz-border-radius: 5px 5px 0px 0px;
-	-webkit-border-radius: 5px 5px 0px 0px;
+/* ---------- LOGIN ---------- */
+
+#login {
+	margin: 120px auto;
+	width: 400px;
+}
+
+#login h2 {
+	background-color: #f95252;
+	-webkit-border-radius: 20px 20px 0 0;
+	-moz-border-radius: 20px 20px 0 0;
+	border-radius: 20px 20px 0 0;
 	color: #fff;
-	padding: 20px;
-	text-align: center;
-	text-transform: uppercase;
-  font-family: 'Open Sans', sans-serif;
-	font-size: 14px;
+	font-size: 28px;
+	padding: 20px 26px;
 }
 
-#login-form fieldset {
-	border: none;
-	padding: 20px;
-	position: relative;
+#login h2 span[class*="fontawesome-"] {
+	margin-right: 14px;
 }
 
-
-#login-form fieldset form {
-	overflow: hidden;
-	width: 270px;
+#login fieldset {
+	background-color: #fff;
+	-webkit-border-radius: 0 0 20px 20px;
+	-moz-border-radius: 0 0 20px 20px;
+	border-radius: 0 0 20px 20px;
+	padding: 20px 26px;
 }
 
-#login-form fieldset form input {
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 14px;
-	outline: none;
-  -webkit-appearance:none;
-  width: 260px;
-  align: center;
-  position: center;
-  
-
+#login fieldset p {
+	color: #777;
+	margin-bottom: 14px;
 }
 
-#login-form fieldset form input[type="email"] {
-	border: 1px solid #292829;
-	border-radius: 3px 3px 0px 0px;
-	-moz-border-radius: 3px 3px 0px 0px;
-	-webkit-border-radius: 3px 3px 0px 0px;
-	padding: 12px 10px;
-	width: 238px;
-  -webkit-appearance:none;
+#login fieldset p:last-child {
+	margin-bottom: 0;
 }
 
-#login-form fieldset form input[type="password"] {
-	border: 1px solid #292829;
-	border-top: none;
-	border-radius: 0px 0px 3px 3px;
-	-moz-border-radius: 0px 0px 3px 3px;
-	-webkit-border-radius: 0px 0px 3px 3px;
-	padding: 12px 10px;
-	width: 238px;
-  -webkit-appearance:none;
-}
-
-#login-form fieldset form input[type="submit"] {
-	background-color: #ebebeb;
-	border: none;
-	border-radius: 3px;
-	-moz-border-radius: 3px;
+#login fieldset input {
 	-webkit-border-radius: 3px;
-	color: #404040;
-	cursor: pointer;
-	float: none;
-	font-weight: bold;
-	margin-top: 20px;
-	padding: 12px 12px;
-  -webkit-appearance: none;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
 }
 
-#login-form fieldset form input[type="submit"]:hover {
-	background-color: #e0e0e0;
+#login fieldset input[type="text"], #login fieldset input[type="password"] {
+	background-color: #eee;
+	color: #777;
+	padding: 4px 10px;
+	width: 328px;
 }
 
-#login-form fieldset form span:before {
-	background-color: #c9c9c9;
-	border-radius: 50%;
-	-moz-border-radius: 50%;
-	-webkit-border-radius: 50%;
-	content: "?";
-	display: inline-block;
-	height: 20px;
-	line-height: 20px;
-	margin-right: 10px;
-	text-align: center;
-	width: 20px;
+#login fieldset input[type="submit"] {
+	background-color: #33cc77;
+	color: #fff;
+	display: block;
+	margin: 0 auto;
+	padding: 4px 0;
+	width: 100px;
+	cursor:pointer;
 }
 
-#login-form fieldset form span {
-	font-size: 12px;
-	margin-top: 40px;
-}
-
-#login-form fieldset form span a{
-	color: #eb6d1a;
-	text-decoration: none;	
-}
-
-#login-form fieldset form span a:hover {
-	color: #eb6d1a;
+#login fieldset input[type="submit"]:hover {
+	background-color: #28ad63;
 }
 
 /* Стили бара vladmaxi, можно удалить */
 .vladmaxi-top{
 	line-height: 24px;
 	font-size: 11px;
-	background: #eee;
+	background: rgba(0, 0, 0, 0.08);
 	text-transform: uppercase;
 	z-index: 9999;
 	position: fixed;
