@@ -5,14 +5,17 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>New Complain</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css"></link>
+        <link rel="stylesheet" href="resources/style.css"></link>
     </h:head>
-    <h:body>
+    <h:body class="w3-container">
         <f:view> 
-            <h:form>
+            <h:form class="w3-container">
                 <table width="100%" height="100%">
                     <tr style="height:50px;" bgcolor="151515"><td>
                             <table width="100%" height="100%"><tr align="center">
-                                   <td width="10%"></td>
+                                    <td width="10%"></td>
                                     <td width="15%"><img src="bg.png" width="75%" height="15%" /></td>
                                     <td><span style="font-size: 18px; font-family: segoe ui semibold; color:#D8D8D8;"><a 
                                                 href="faces/About.xhtml" style="color:#D8D8D8;">About</a></span></td>
@@ -21,7 +24,7 @@
                                     <td><span style="font-size: 18px; font-family: segoe ui semibold; color:#D8D8D8;"><a 
                                                 href="faces/AllArticles.xhtml" style="color:#D8D8D8;">All Articles</a></span></td>
                                     <td width="10%"></td>
-                                    
+
                                     <td><h:outputLabel style="font-family: segoe ui semibold;font-size: 15px;color:#D8D8D8; " value="Welcome, #{request.remoteUser}" /></td>
                                     <td width="10%"><h:commandButton class="button" onmouseover="this.style.background = '#0077CC';this.style.color = 'white'" onmouseout="this.style.background = 'white';this.style.color = '#0077CC'" value="LogOff" action="#{userBean.logout()}" /></td>
                                 </tr></table></td></tr>
@@ -29,59 +32,46 @@
                             <table width="100%" height="100%">
                                 <tr><td width="10%"></td>
                                     <td>
-                                        <h1> 
-                                            Add New Complain
-                                        </h1> 
-
-                                        <table height="15%" width="100%"> 
-                                            <tr>
-                                            </tr> 
-                                            <tr> 
-                                                <th align="right" width="10%"> 
-                                                    <h:outputLabel value="Your Name" for="yourName"/> 
-                                                </th> 
-                                                <th align="left"> 
-                                                    <h:inputText id="yourName" value="#{complainBean.complainAuthor}" required="true"> </h:inputText> 
-                                                </th> 
-                                                <th> 
+                                        <br><br></br></br>
+                                        <div class="w3-card-4">
+                                            <div class="w3-container w3-green">
+                                                <h2>Add Complain</h2>
+                                            </div>
+                                            <table height="15%" width="100%"> 
+                                                <tr>
+                                                </tr> 
+                                                <tr> 
+                                                    <strong><h:outputLabel value="Your Name: " for="yourName"/></strong> 
+                                                    <h:inputText class="w3-input w3-animate-input" style="width: 135px" id="yourName" value="#{complainBean.complainAuthor}" required="true"> </h:inputText> 
                                                     <h:message for="yourName" style="color:red" /> 
-                                                </th> 
-                                            </tr> 
+                                                </tr> 
+                                                <tr>                                                   
+                                                    <strong><h:outputLabel value="Content: " for="content"/></strong>                                                    
+                                                    <h:inputTextarea class="w3-input" id="content" value="#{complainBean.complainContent}" required="true"> </h:inputTextarea>                                                    
+                                                    <h:message for="content" style="color:red" />                                                      
+                                                </tr> 
 
-                                            <tr>
-                                                <th align="right" width="10%">
-                                                    Choose the category
-                                                </th>
-                                                <th align="left">
-                                                    <h:selectOneMenu value="#{complainBean.complainType}">
-                                                        <f:selectItem itemValue="Piracy" itemLabel="Piracy"></f:selectItem>
-                                                        <f:selectItem itemValue="Advertising" itemLabel="Advertising"></f:selectItem>
-                                                        <f:selectItem itemValue="Violence" itemLabel="Violence">
-                                                        </f:selectItem>
-                                                    </h:selectOneMenu>
-                                                </th>
-                                            </tr>
+                                                <tr>                                                   
+                                                    <strong><h:outputLabel value="Choose the category: " for="Category"></h:outputLabel> </strong>                                                 
+                                                    <th align="left">
+                                                        <h:selectOneMenu value="#{complainBean.complainType}">
+                                                            <f:selectItem itemValue="Piracy" itemLabel="Piracy"></f:selectItem>
+                                                            <f:selectItem itemValue="Advertising" itemLabel="Advertising"></f:selectItem>
+                                                            <f:selectItem itemValue="Violence" itemLabel="Violence">
+                                                            </f:selectItem>
+                                                        </h:selectOneMenu>
+                                                    </th>
+                                                </tr>
 
 
-                                            <tr> 
-                                                <th align="right" width="10%"> 
-                                                    <h:outputLabel value="Content" for="content"/> 
-                                                </th> 
-                                                <th align="left"> 
-                                                    <h:inputText id="content" value="#{complainBean.complainContent}" required="true"> </h:inputText> 
-                                                </th> 
-                                                <th> 
-                                                    <h:message for="content" style="color:red" /> 
-                                                </th> 
-                                            </tr> 
-
-                                            <tr> 
-                                                <th></th> 
-                                                <th align="left"> 
-                                                    <h:commandButton class="button" value="Add New Complain" action="#{complainBean.addNewComplain(articleBean.idArticle)}"/> 
-                                                </th> 
-                                            </tr> 
-                                        </table>
+                                                <tr> 
+                                                    <th></th> 
+                                                    <th align="left"> 
+                                                        <h:commandButton class="button" value="Add New Complain" action="#{complainBean.addNewComplain(articleBean.idArticle)}"/> 
+                                                    </th> 
+                                                </tr> 
+                                            </table>
+                                        </div>
                                     </td>
                                     <td width="10%"></td></tr>                             
                             </table>    

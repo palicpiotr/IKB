@@ -5,10 +5,13 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>New Article</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css"></link>
+        <link rel="stylesheet" href="resources/style.css"></link>
     </h:head>
-    <h:body>
-          <f:view> 
-            <h:form>
+    <h:body class="container">
+        <f:view> 
+            <h:form class="container">
                 <table width="100%" height="100%">
                     <tr style="height:50px;" bgcolor="151515"><td>
                             <table width="100%" height="100%"><tr align="center">
@@ -21,7 +24,7 @@
                                     <td><span style="font-size: 18px; font-family: segoe ui semibold; color:#D8D8D8;"><a 
                                                 href="faces/AllArticles.xhtml" style="color:#D8D8D8;">All Articles</a></span></td>
                                     <td width="10%"></td>
-                                    
+
                                     <td><h:outputLabel style="font-family: segoe ui semibold;font-size: 15px;color:#D8D8D8; " value="Welcome, #{request.remoteUser}" /></td>
                                     <td width="10%"><h:commandButton class="button" onmouseover="this.style.background = '#0077CC';this.style.color = 'white'" onmouseout="this.style.background = 'white';this.style.color = '#0077CC'" value="LogOff" action="#{userBean.logout()}" /></td>
                                 </tr></table></td></tr>
@@ -29,86 +32,65 @@
                             <table width="100%" height="100%">
                                 <tr><td width="10%"></td>
                                     <td>
-                                        <h1> 
-                                          Add New Article
-                                        </h1> 
-
-                                        <table height="15%" width="100%"> 
-                                            <tr>
-                                            </tr> 
-                                            <tr> 
-                                                <th align="right" width="10%"> 
-                                                    <h:outputLabel value="Name" for="articleName"/> 
-                                                </th> 
-                                                <th align="left"> 
-                                                    <h:inputText id="articleName" value="#{articleBean.articleName}" required="true"> </h:inputText> 
-                                                </th> 
-                                                <th> 
+                                        <br></br>
+                                        <div class="w3-card-4">
+                                            <div class="w3-container w3-green">
+                                                <strong><h2> Add New Article</h2></strong></div>
+                                            <table height="15%" width="100%"> 
+                                                <tr>
+                                                </tr>
+                                                <br></br>
+                                                <tr> 
+                                                    <strong><h:outputLabel value="Name" for="articleName"/></strong> 
+                                                    <h:inputTextarea class="w3-input" id="articleName" value="#{articleBean.articleName}" required="true"> </h:inputTextarea>                                                     
                                                     <h:message for="articleName" style="color:red" /> 
-                                                </th> 
-                                            </tr> 
+                                                </tr> 
 
-                                            <tr> 
-                                                <th align="right" width="10%"> 
-                                                    <h:outputLabel value="Content" for="content"/> 
-                                                </th> 
-                                                <th align="left"> 
-                                                    <h:inputText id="content" value="#{articleBean.content}" required="true"> </h:inputText> 
-                                                </th> 
-                                                <th> 
-                                                    <h:message for="content" style="color:red" /> 
-                                                </th> 
-                                            </tr> 
-                                            
-                                            <tr>
-                                                <th align="right" width="10%">
-                                                    <h:outputLabel value="Author name" for="authorName"/>
-                                                </th>
-                                                <th align="left">
-                                                    <h:inputText id="authorName" value="#{articleBean.articleAuthor}" required="true"></h:inputText>
-                                                </th>
-                                                <th>
+                                                <tr> 
+                                                    <strong><h:outputLabel value="Content: " for="content"/></strong>
+                                                    <h:inputTextarea class="w3-input" id="content" value="#{articleBean.content}" ></h:inputTextarea>
+                                                    <h:message for="content" style="color:red"/>
+                                                </tr> 
+
+                                                <tr>
+                                                    <strong><h:outputLabel value="Author name" for="authorName"/></strong>
+                                                    <h:inputText class="w3-input" id="authorName" value="#{articleBean.articleAuthor}" required="true"></h:inputText>                                                    
                                                     <h:message for="authorName" style="color:red" />
-                                                </th>
-                                            </tr>
 
-                                            <!--Problems witg date conversation -->
-                                           <!-- <tr> 
-                                                <th align="right" width="10%"> 
-                                                    <h:outputLabel value="Adding Date" for="addingDate"/> 
-                                                </th> 
-                                                <th align="left"> 
-                                                    <h:inputText id="addingDate" value="{articleBean.addingDate}" required="true">
-                                                        <f:convertDateTime pattern="yyyy-MM-dd"/>
-                                                    </h:inputText> 
-                                                </th> 
-                                                <th> 
-                                                    <h:message for="addingDate" style="color:red" /> 
-                                                </th> 
-                                            </tr> -->
+                                                </tr>
 
-                                            <tr>
-                                                <th align="right" width="10%">
-                                                    Choose the category
-                                                </th>
-                                                <th align="left">
-                                                   
+                                                <!--Problems witg date conversation -->
+                                                <!-- <tr> 
+                                                     <th align="right" width="10%"> 
+                                                         <h:outputLabel value="Adding Date" for="addingDate"/> 
+                                                     </th> 
+                                                     <th align="left"> 
+                                                         <h:inputText id="addingDate" value="{articleBean.addingDate}" required="true">
+                                                             <f:convertDateTime pattern="yyyy-MM-dd"/>
+                                                         </h:inputText> 
+                                                     </th> 
+                                                     <th> 
+                                                         <h:message for="addingDate" style="color:red" /> 
+                                                     </th> 
+                                                 </tr> -->
+                                                <br></br>
+                                                <tr>
+                                                    <strong>Choose the category </strong>
                                                     <h:selectOneMenu value="#{articleBean.idArticletype}"> 
                                                         <f:selectItems value="#{postBean.allArticleTypes}" var="articles" 
                                                                        itemValue="#{articles.idType}" itemLabel="#{articles.name}" /> 
                                                     </h:selectOneMenu>
-                                                    
-                                                </th>
-                                            </tr>
-                                            <tr> 
-                                                <th></th> 
-                                                <th align="left"> 
-                                                    <h:commandButton class="button" onmouseover="this.style.background = '#0077CC';this.style.color = 'white'" onmouseout="this.style.background = 'white';this.style.color = '#0077CC'" value="Add" action="#{articleBean.addNewArticle()}"/> 
-                                                </th> 
-                                            </tr> 
-                                        </table>
+                                                </tr>
+                                                <tr> 
+                                                    <th></th> 
+                                                    <th align="left"> 
+                                                        <h:commandButton class="addbtn" onmouseover="this.style.background = '#0077CC';this.style.color = 'white'" onmouseout="this.style.background = 'white';this.style.color = '#0077CC'" value="Add" action="#{articleBean.addNewArticle()}"/> 
+                                                    </th> 
+                                                </tr> 
+                                            </table>
+                                        </div>
                                     </td>
-                                    <td width="10%"></td></tr>                             
+                                    <td width="10%"></td></tr>    
                             </table>    
                         </td></tr>
                 </table>

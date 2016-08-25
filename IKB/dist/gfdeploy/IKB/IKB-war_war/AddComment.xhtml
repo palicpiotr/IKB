@@ -5,10 +5,13 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>New Comment</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css"></link>
+        <link rel="stylesheet" href="resources/style.css"></link>
     </h:head>
-    <h:body>
-       <f:view> 
-            <h:form>
+    <h:body class="w3-container">
+        <f:view> 
+            <h:form class="w3-container">
                 <table width="100%" height="100%">
                     <tr style="height:50px;" bgcolor="151515"><td>
                             <table width="100%" height="100%"><tr align="center">
@@ -21,7 +24,7 @@
                                     <td><span style="font-size: 18px; font-family: segoe ui semibold; color:#D8D8D8;"><a 
                                                 href="faces/AllArticles.xhtml" style="color:#D8D8D8;">All Articles</a></span></td>
                                     <td width="10%"></td>
-                                    
+
                                     <td><h:outputLabel style="font-family: segoe ui semibold;font-size: 15px;color:#D8D8D8; " value="Welcome, #{request.remoteUser}" /></td>
                                     <td width="10%"><h:commandButton class="button" onmouseover="this.style.background = '#0077CC';this.style.color = 'white'" onmouseout="this.style.background = 'white';this.style.color = '#0077CC'" value="LogOff" action="#{userBean.logout()}" /></td>
                                 </tr></table></td></tr>
@@ -29,47 +32,37 @@
                             <table width="100%" height="100%">
                                 <tr><td width="10%"></td>
                                     <td>
-                                        <h1> 
-                                          Add New Comment
-                                        </h1> 
+                                        <br><br></br></br>
+                                        <div class="w3-card-4">
+                                            <div class="w3-container w3-green">
+                                                <h2>Add Comment</h2>
+                                            </div>
 
-                                        <table height="15%" width="100%"> 
-                                            <tr>
-                                            </tr> 
-                                            <tr> 
-                                                <th align="right" width="10%"> 
-                                                    <h:outputLabel value="Your Name" for="articleName"/> 
-                                                </th> 
-                                                <th align="left"> 
-                                                    <h:inputText id="articleName" value="#{commentBean.commentAuthor}" required="true"> </h:inputText> 
-                                                </th> 
-                                                <th> 
-                                                    <h:message for="articleName" style="color:red" /> 
-                                                </th> 
-                                            </tr> 
+                                            <table height="15%" width="100%"> 
+                                                <tr>
+                                                </tr> 
+                                                <tr> 
+                                                    <strong><h:outputLabel value="Your Name: " for="articleName"/></strong>                                                
+                                                    <h:inputText class="w3-input w3-animate-input" style="width: 135px" id="articleName" value="#{commentBean.commentAuthor}" required="true"> </h:inputText>                                           
+                                                    <h:message for="articleName" style="color:red" />                                                
+                                                </tr> 
 
-                                            <tr> 
-                                                <th align="right" width="10%"> 
-                                                    <h:outputLabel value="Content" for="content"/> 
-                                                </th> 
-                                                <th align="left"> 
-                                                    <h:inputText id="content" value="#{commentBean.commentContent}" required="true"> </h:inputText> 
-                                                </th> 
-                                                <th> 
-                                                    <h:message for="content" style="color:red" /> 
-                                                </th> 
-                                            </tr> 
-                                            
-                                            <tr> 
-                                                <th></th> 
-                                                <th align="left"> 
-                                                    <h:commandButton class="button" value="Add New Comment" action="#{commentBean.addNewComment(articleBean.idArticle)}"/> 
-                                                </th> 
-                                            </tr> 
-                                            
-                                        </table>
-                                        <br></br>
-                                       
+                                                <tr> 
+                                                    <strong><h:outputLabel value="Content: " for="content"/></strong>                                             
+                                                    <h:inputTextarea class="w3-input" id="content" value="#{commentBean.commentContent}" required="true"> </h:inputTextarea> 
+                                                    <h:message for="content" style="color:red" />
+                                                </tr> 
+
+                                                <tr> 
+                                                    <th></th> 
+                                                    <th align="left"> 
+                                                        <h:commandButton class="commentbtn" value="Add New Comment" action="#{commentBean.addNewComment(articleBean.idArticle)}"/> 
+                                                    </th> 
+                                                </tr> 
+
+                                            </table>
+                                            <br></br>
+                                        </div>
                                     </td>
                                     <td width="10%"> </td></tr>                             
                             </table>    
