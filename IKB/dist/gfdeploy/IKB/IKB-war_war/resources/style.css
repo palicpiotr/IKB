@@ -1,10 +1,238 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : 05.08.2016, 23:14:39
-    Author     : skipp
-*/
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 18px;
+  padding: 6px 4px;
+  width: 100px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
 
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '»';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.editbtn {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 6px 4px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.editbtn {
+    background-color: white;
+    color: black;
+    border: 2px solid #008CBA;
+}
+
+.editbtn:hover {
+    background-color: #008CBA;
+    color: white;
+}
+
+.deletebtn {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 6px 4px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+
+.deletebtn {
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
+}
+
+.deletebtn:hover {
+    background-color: #555555;
+    color: white;
+}
+
+.createbtn {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+.createbtn:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.addbtn {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.addbtn {
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
+}
+
+.addbtn:hover {
+    background-color: #555555;
+    color: white;
+}
+
+.commentbtn {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 6px 4px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.commentbtn {
+    background-color: white;
+    color: black;
+    border: 2px solid #4CAF50;
+}
+
+.commentbtn:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.commentsbtn {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 6px 4px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+.commentsbtn {
+    background-color: white;
+    color: black;
+    border: 2px solid #008CBA;
+}
+
+.commentsbtn:hover {
+    background-color: #008CBA;
+    color: white;
+}
+
+.complainbtn {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 6px 4px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+
+.complainbtn {
+    background-color: white;
+    color: black;
+    border: 2px solid #f44336;
+}
+
+.complainbtn:hover {
+    background-color: #f44336;
+    color: white;
+}
+
+.complainsbtn {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 6px 4px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+
+.complainsbtn {
+    background-color: white;
+    color: black;
+    border: 2px solid #e7e7e7;
+}
+
+.complainsbtn:hover {background-color: #e7e7e7;}

@@ -5,7 +5,11 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Details</title>
+        <link href="resources/del.css" rel="stylesheet"/><!--button-->
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta> <!--table-->
+        <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css"></link> <!--table-->
+        <link href="resources/style.css" rel="stylesheet"/><!--buttons-->
     </h:head>
     <h:body>
         <f:view> 
@@ -22,7 +26,7 @@
                                     <td><span style="font-size: 18px; font-family: segoe ui semibold; color:#D8D8D8;"><a 
                                                 href="faces/AllArticles.xhtml" style="color:#D8D8D8;">All Articles</a></span></td>
                                     <td width="10%"></td>
-                                    
+
                                     <td><h:outputLabel style="font-family: segoe ui semibold;font-size: 15px;color:#D8D8D8; " value="Welcome, #{request.remoteUser}" /></td>
                                     <td width="10%"><h:commandButton class="button" onmouseover="this.style.background = '#0077CC';this.style.color = 'white'" onmouseout="this.style.background = 'white';this.style.color = '#0077CC'" value="LogOff" action="#{userBean.logout()}" /></td>
                                 </tr></table></td></tr>
@@ -35,44 +39,47 @@
                                         <h1> 
                                             Details the choosed <b>Article</b>
                                         </h1> 
-                                        <ol>
-                                            <li>
-                                                <h1><font color="BLUE">  <h> <u><h:commandLink action="/AddNewArticle.xhtml" style="color:#0077CC;" value="Create new post" /></u></h></font></h1>
-                                            </li>
-                                        </ol>
-                                        <table height="15%" width="100%">  
-                                            <tr>
-                                                <td style="border-bottom: 2px solid #0077CC"> Article Name </td>
-                                                <td style="border-bottom: 2px solid #0077CC"> Content </td>
-                                                <td style="border-bottom: 2px solid #0077CC"> Category </td>
-                                                <td style="border-bottom: 2px solid #0077CC"> Adding Date </td>
-                                                <td style="border-bottom: 2px solid #0077CC"> Author </td>
-                                                <td style="border-bottom: 2px solid #0077CC"> Remove </td>
-                                                <td style="border-bottom: 2px solid #0077CC"> Edit </td>
-                                                <td style="border-bottom: 2px solid #0077CC"> Comment this </td>
-                                                <td style="border-bottom: 2px solid #0077CC"> Comments </td>
-                                                <td style="border-bottom: 2px solid #0077CC"> Complain this </td>
-                                                <td style="border-bottom: 2px solid #0077CC"> Complains </td>
-                                            </tr>  
+
+
+                                        <table height="15%" width="100%" class="w3-table w3-striped w3-bordered w3-border">  
+                                            <thead>
+                                                <tr class="w3-light-grey w3-hover-red">
+                                                    <th> Article Name </th>
+                                                    <th> Content </th>
+                                                    <th> Category </th>
+                                                    <th> Adding Date </th>
+                                                    <th> Author </th>
+                                                    <th> Remove </th>
+                                                    <th> Edit </th>
+                                                    <th> Comment this </th>
+                                                    <th> Comments </th>
+                                                    <th> Complain this </th>
+                                                    <th> Complains </th>
+                                                </tr>  
+                                            </thead>
                                             <c:forEach items="#{articleBean.getArticleContent(articleBean.articleName)}" var="art">
-                                                <tr>                      
+                                                <tr class="w3-hover-green">                      
                                                     <td> #{art.articleName}</td>
                                                     <td> #{art.content} </td> 
                                                     <td> #{art.idType.name} </td>
                                                     <td> #{art.addingDate} </td>
                                                     <td> #{art.articleAuthor} </td>
-                                                    <td width="7%"><h:commandButton class="button"  action="#{articleBean.removeArticle(art.idArticle)}" value="Delete"/></td>
-                                                    <td><h:commandButton class="button" action="#{articleBean.toEditArticle(art.idArticle, postBean.idArticletype)}" value="Edit"/></td>
-                                                    <td><h:commandButton class="button" action="#{articleBean.getCommentPage(art.idArticle)}" value="Comment"></h:commandButton></td>                                                    
-                                                    <td><h:commandButton class="button" action="#{commentBean.getPageWithTheComment(art.idArticle)}" value="Comments"></h:commandButton></td>
-                                                    <td><h:commandButton class="button" action="#{articleBean.getComplainPage(art.idArticle)}" value="Complain"></h:commandButton></td>                                                    
-                                                    <td><h:commandButton class="button" action="#{complainBean.getPageWithTheComplain(art.idArticle)}" value="Complains"></h:commandButton></td>
+                                                    <td width="7%"><h:commandButton class="deletebtn"  action="#{articleBean.removeArticle(art.idArticle)}" value="Delete"/></td>
+                                                    <td><h:commandButton class="editbtn" action="#{articleBean.toEditArticle(art.idArticle, postBean.idArticletype)}" value="Edit"/></td>
+                                                    <td><h:commandButton class="commentbtn" action="#{articleBean.getCommentPage(art.idArticle)}" value="Comment"></h:commandButton></td>                                                    
+                                                    <td><h:commandButton class="commentsbtn" action="#{commentBean.getPageWithTheComment(art.idArticle)}" value="Comments"></h:commandButton></td>
+                                                    <td><h:commandButton class="complainbtn" action="#{articleBean.getComplainPage(art.idArticle)}" value="Complain"></h:commandButton></td>                                                    
+                                                    <td><h:commandButton class="complainsbtn" action="#{complainBean.getPageWithTheComplain(art.idArticle)}" value="Complains"></h:commandButton></td>
                                                 </tr> 
                                             </c:forEach>
                                         </table>
                                         <br />
                                         <br />
-                                        <h> <h:commandLink action="/AllArticles.xhtml" style="color:#0077CC;" value="Return To Article List" /></h>
+                                        <div class="row">
+                                            <div class="col-md-3 col-sm-3 col-xs-6">
+                                                <h:commandLink class="btn btn-sm animated-button victoria-one" action="/AddNewArticle.xhtml" value="Create new post" /> </div>
+                                            <div class="col-md-3 col-sm-3 col-xs-6">
+                                                <h:commandLink class="btn btn-sm animated-button victoria-two" action="/AllArticles.xhtml" value="Return To Article List" /></div></div>
                                         <br />
                                         <br />
 

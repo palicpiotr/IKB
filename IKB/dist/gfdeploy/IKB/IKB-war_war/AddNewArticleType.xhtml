@@ -5,6 +5,8 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Adding the new category</title>
+        <link href="resources/style.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css"></link>
     </h:head>
     <h:body>
         <f:view> 
@@ -12,7 +14,7 @@
                 <table width="100%" height="100%">
                     <tr style="height:50px;" bgcolor="151515"><td>
                             <table width="100%" height="100%"><tr align="center">
-                                   <td width="10%"></td>
+                                    <td width="10%"></td>
                                     <td width="15%"><img src="bg.png" width="75%" height="15%" /></td>
                                     <td><span style="font-size: 18px; font-family: segoe ui semibold; color:#D8D8D8;"><a 
                                                 href="faces/About.xhtml" style="color:#D8D8D8;">About</a></span></td>
@@ -21,7 +23,7 @@
                                     <td><span style="font-size: 18px; font-family: segoe ui semibold; color:#D8D8D8;"><a 
                                                 href="faces/AllArticles.xhtml" style="color:#D8D8D8;">All Articles</a></span></td>
                                     <td width="10%"></td>
-                                    
+
                                     <td><h:outputLabel style="font-family: segoe ui semibold;font-size: 15px;color:#D8D8D8; " value="Welcome, " /></td>
                                     <td width="10%"><h:commandButton class="button" onmouseover="this.style.background = '#0077CC';this.style.color = 'white'" onmouseout="this.style.background = 'white';this.style.color = '#0077CC'" value="LogOff" action="#{userBean.logout()}" /></td>
                                 </tr></table></td></tr>
@@ -40,7 +42,7 @@
                                                     <h:outputLabel value="Name" for="articleTypeName"/> 
                                                 </th> 
                                                 <th align="left"> 
-                                                    <h:inputText id="articleTypeName" value="#{postBean.articleTypeName}" label="Article Type Name">                                                        
+                                                    <h:inputText class="w3-input w3-animate-input" style="width:135px" id="articleTypeName" value="#{postBean.articleTypeName}" label="Article Type Name">                                                        
                                                     </h:inputText> 
                                                 </th> 
                                                 <th> 
@@ -51,7 +53,7 @@
                                             <tr> 
                                                 <th></th> 
                                                 <th align="left"> 
-                                                    <h:commandButton class="button" onmouseover="this.style.background = '#0077CC';this.style.color = 'white'" onmouseout="this.style.background = 'white';this.style.color = '#0077CC'" value="Add" action="#{postBean.addNewArticleType()}"/> 
+                                                    <h:commandButton class="addbtn" onmouseover="this.style.background = '#0077CC';this.style.color = 'white'" onmouseout="this.style.background = 'white';this.style.color = '#0077CC'" value="Add" action="#{postBean.addNewArticleType()}"/> 
                                                 </th> 
                                             </tr> 
                                         </table>

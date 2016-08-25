@@ -5,9 +5,18 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Main page</title>
+        <link href="resources/style.css" rel="stylesheet"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css"></link>
+        <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'></link>
+        <link rel="stylesheet" href="resources/style.css"></link>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"></link>
+        <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700' rel='stylesheet' type='text/css'></link>
+        <link rel="stylesheet" href="resources/styleb.less"></link>
+
     </h:head>
-    <h:body>
+    <h:body class="w3-container">
 
         <f:view>   
             <h:form>
@@ -41,28 +50,27 @@
                                             <strong>Press to get the page of Article Types </strong>
                                         </h1> 
 
-                                        <table height="15%" width="100%">  
-                                            <tr>
-                                                <td style="display:none;"><b> ID of Aticle Type</b></td>
-                                                <td style="border-bottom: 2px solid #0077CC"><b> Name </b></td>
-                                                <td> </td>
-                                                <td> </td>
-                                            </tr> 
+                                        <table class="w3-table w3-striped w3-bordered w3-border">  
+                                            <thead>
+                                                <tr class="w3-light-grey w3-hover-red">
+                                                    <th>Category Name</th>
+                                                    <th>Delete</th>
+                                                    <th>Edit</th>
+                                                </tr>
+                                            </thead>
                                             <c:forEach items="#{postBean.getAllArticleTypes()}" var="post">
-                                                <tr> 
-                                                    <td><h:commandLink style="color:#0077CC" action="#{postBean.getPageArticleInArticletype(post.idType)}" value="#{post.name}"/>  </td>
-                                                    <td width="8%"><h:commandButton class="button" 
-                                                                                    onmouseover="this.style.background = '#0077CC';this.style.color = 'white'" onmouseout="this.style.background = 'white';this.style.color = '#0077CC'" action="#{postBean.removeArticleTypeBean(post.idType)}" value="Delete"/></td>
-                                                    <td><h:commandButton class="button" 
-                                                                         onmouseover="this.style.background = '#0077CC';this.style.color = 'white'" onmouseout="this.style.background = 'white';this.style.color = '#0077CC'" action="#{postBean.toEditArticleTypeName(post.idType)}" value="Edit"/></td>
+                                                <tr class="w3-hover-green"> 
+                                                    <td><h:commandLink action="#{postBean.getPageArticleInArticletype(post.idType)}" value="#{post.name}"/>  </td>
+                                                    <td width="8%"><h:commandButton styleClass="deletebtn" action="#{postBean.removeArticleTypeBean(post.idType)}" value="Delete"/></td>                                                    
+                                                    <td><h:commandButton styleClass="editbtn" action="#{postBean.toEditArticleTypeName(post.idType)}" value="Edit"/></td>
 
                                                 </tr> 
                                             </c:forEach>
                                         </table>
                                         <br />
-                                        <br />
-                                        <h> <h:commandLink action="/AddNewArticleType.xhtml" style="color:#0077CC" value="Create New Category Of Post" /></h><br></br>
-                                        <h><h:commandLink action="/AllArticles.xhtml" style="color:#0077CC" value="All Articles" /></h>
+                                        <br /><p>
+                                            <h><h:commandLink class="createbtn" action="/AddNewArticleType.xhtml" value="Create New Category Of Post" /></h>
+                                            <h><h:commandLink class="createbtn" action="/AllArticles.xhtml" value="All Articles" /></h></p>
                                     </td>
                                     <td width="10%"></td></tr>
                             </table>
